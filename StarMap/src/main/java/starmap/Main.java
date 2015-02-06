@@ -13,7 +13,11 @@ import java.io.FileNotFoundException;
  */
 public class Main {
     public static void main(String[] args) {
-        new HelloWorld().main();
+        
+        Starset Otava = new Starset("Dubhe", "Merak", "Phad", "Megrez", "Alioth", "Mizar", "Alkaid");
+        Otava.print();
+        new StarFrame().show(Otava);
+        
         }
     }
 
