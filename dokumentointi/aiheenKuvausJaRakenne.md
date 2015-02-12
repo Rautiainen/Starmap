@@ -13,7 +13,7 @@ Toiminnot
 
 Näyttää tasasivuisen kuution avaruutta, jonka keskipiste on Otavan tähtikuvion keskipisteessä, ja jonka etusivu on 50 asteen levyinen kaistale pohjoisen pallonpuoliskon tähtikarttoja. 
 
-// 2. Tähtien kirkkaus
+//2. Tähtien kirkkaus
 
 Tähdet esitetään valkoisina palloina, joiden halkaisija on riippuvainen visuaalisesta magnitudista tarkkailupaikasta käsin. 
 
@@ -61,7 +61,7 @@ Ohjelma käyttää seuraavia vapaan lähdekoodin komponentteja ja tietokantoja
 
 -Lighweight Jawa Game Library 3 (http://www.lwjgl.org/)
 
--Jawa OpenGL Math Library (https://github.com/RGreenlees/Java-OpenGL-Math-Library), author Richard Greenlees
+-Jawa OpenGL Math Library (https://github.com/RGreenlees/Java-OpenGL-Math-Library) by Richard Greenlees
 
 -HYG Database of stars (http://astronexus.com/node/34) by David Nash 
 
