@@ -7,13 +7,13 @@ Käyttäjät: Sovellus toimii samalla tavalla kaikkien käyttäjien kanssa.
 
 Toiminnot 
 
-Kursiivilla kirjoittuja kohtia ei vielä ole toteutettu
+//-kommentoituja toimintoja ei vielä ole toteutettu
 
 1. Lähtötila
 
 Näyttää tasasivuisen kuution avaruutta, jonka keskipiste on Otavan tähtikuvion keskipisteessä, ja jonka etusivu on 50 asteen levyinen kaistale pohjoisen pallonpuoliskon tähtikarttoja. 
 
-'''2. Tähtien kirkkaus'''
+// 2. Tähtien kirkkaus
 
 Tähdet esitetään valkoisina palloina, joiden halkaisija on riippuvainen visuaalisesta magnitudista tarkkailupaikasta käsin. 
 
