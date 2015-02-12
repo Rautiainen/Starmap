@@ -23,7 +23,7 @@ Käyttöliittymä on ikkuna jossa on seuraavat komponentit
 
 //3.1. Kuution keskipisteen koordinaatit
 
-Kuution keskipisteen koordinaatit näytetään sekä kartesiolaisessa- että pallokoordinaatistossa. Niitä voi myös editöidä käsin. 
+Kuution keskipisteen koordinaatit näytetään sekä kartesiolaisessa- että pallokoordinaatistossa. Niitä voi myös editoidä käsin. 
 
 //3.2 Tarkkailupisteen koordinaatit
 
