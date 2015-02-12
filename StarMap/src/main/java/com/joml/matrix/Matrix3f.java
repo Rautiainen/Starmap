@@ -381,7 +381,7 @@ public class Matrix3f {
         this.m22 = 1.0f;
     }
     
-    // my own - builds matrix from columns
+    //Additional methods by Antti Rautiainen
     
     public Matrix3f(Vector3f firstcol, Vector3f secondcol, Vector3f thirdcol) {
         this.m00 = firstcol.x;

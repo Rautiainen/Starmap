@@ -50,7 +50,7 @@ public class Main {
         int n = Otava.getStars().size();
         Vector3f testcenter2 = new Vector3f((float) sumx / n, (float) sumy / n, (float) sumz / n);
         
-        StarCube testcube2 = new StarCube(testcenter2,(float) (40 * (Math.PI/180))); 
+        StarCube testcube2 = new StarCube(testcenter2,(float) (50 * (Math.PI/180))); 
         System.out.print(testcube2);
         Starset Otava2 = new Starset(testcube2, "Dubhe", "Merak", "Phad", "Megrez", "Alioth", "Mizar", "Alkaid");
                 

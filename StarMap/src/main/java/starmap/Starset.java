@@ -1,8 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  Set of stars and link to command loop for its presentation in a LWJGL Frame by Antti Rautiainen.
  */
+
 package starmap;
 
 import Lwjglwrapper.GLoopObject;
@@ -11,10 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- *
- * @author air
- */
 
 public class Starset {
     private List<Star> stars;

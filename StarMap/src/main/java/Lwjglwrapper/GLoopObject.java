@@ -1,14 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *  Interface to be called by generic frame of LWJGL by Antti Rautiainen
  */
 package Lwjglwrapper;
 
-/**
- *
- * @author air
- */
+
 public interface GLoopObject {
     
     public void show();

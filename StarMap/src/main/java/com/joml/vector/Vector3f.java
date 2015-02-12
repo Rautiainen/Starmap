@@ -155,7 +155,7 @@ public class Vector3f {
         }
         
         
-        //This made by air
+    //Additional methods by Antti Rautiainen
         
     /** Multiplies this vector by the supplied matrix.  */
     public void mul(Matrix3f left) {

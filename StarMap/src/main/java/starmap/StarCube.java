@@ -1,15 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Geometric operations for 3d projections of stars. 
+ * Author Antti Rautiainen. 
  */
+
 package starmap;
 import com.joml.matrix.Matrix3f;
 import com.joml.vector.Vector3f;
-/**
- *
- * @author air
- */
+
 public class StarCube {
     private Vector3f center;
     private Matrix3f transformation;

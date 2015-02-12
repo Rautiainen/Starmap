@@ -1,3 +1,8 @@
+/*
+ *  LWJGL frame for presentation of stars by Antti Rautiainen.
+ */
+
+
 package starmap;
 
 import Lwjglwrapper.LwjglFrame;
