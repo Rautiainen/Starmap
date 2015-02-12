@@ -59,6 +59,15 @@ public class Star {
         return properName;
     }
 
+    public double getRa() {
+        return ra;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+    
+    
     public double getX() {
         return x;
     }

@@ -5,6 +5,7 @@
  */
 package starmap;
 
+import Lwjglwrapper.GLoopObject;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +15,15 @@ import java.util.Scanner;
  *
  * @author air
  */
+
 public class Starset {
-    List<Star> stars;
+    private List<Star> stars;
+    private GLoopObject gLoopObject;
     
-    public Starset(String... args) {
+    private double edgelength = 0.6;
+    
+    public Starset(StarCube starcube, String... args) {
+        gLoopObject = new StarGLoop(this, starcube);
         stars = new ArrayList<>();
         
         File csvStardata = new File("hygdata_v3.csv");
@@ -48,11 +54,13 @@ public class Starset {
         
     }
 
-    public List<Star> getStars() {
-        return stars;
+    public GLoopObject getgLoopObject() {
+        return gLoopObject;
     }
     
-    
+    public List<Star> getStars() {
+        return stars;
+    }  
     
     public void print() {
         for (Star star : stars) {
