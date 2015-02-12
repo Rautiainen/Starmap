@@ -11,7 +11,7 @@ Toiminnot
 
 1. Lähtötila
 
-Näyttää tasasivuisen kuution avaruutta, jonka keskipiste on Otavan tähtikuvion keskipisteessä, ja jonka etusivu on 50 asteen levyinen kaistale pohjoisen pallonpuoliskon tähtikarttoja. 
+Näyttää tasasivuisen kuution avaruutta, jonka keskipiste on Otavan tähtikuvion keskipisteessä, ja jonka etusivu on 50 asteen levyinen kaistale pohjoisen pallonpuoliskon tähtitaivasta. 
 
 //2. Tähtien kirkkaus
 
