@@ -59,7 +59,7 @@ public class Main {
         //new StarFrame().execute(Otava.getgLoopObject());
         
         new StarFrame().execute(Otava2.getgLoopObject());
-        
+     
         }
     }
 
