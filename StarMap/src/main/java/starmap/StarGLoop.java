@@ -1,6 +1,3 @@
-/*
- *  Functions to be called by LWJGL frame loop by Antti Rautiainen.
- */
 package starmap;
 
 import Lwjglwrapper.GLoopObject;
@@ -11,8 +8,8 @@ import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
 import static org.lwjgl.opengl.GL11.glClear;
 
 /**
- *
- * @author air
+ *  Functions to be called by LWJGL frame loop 
+ *  @author Antti Rautiainen
  */
 public class StarGLoop implements GLoopObject {
 

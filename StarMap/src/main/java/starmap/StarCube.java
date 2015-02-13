@@ -1,12 +1,11 @@
-/*
- * Geometric operations for 3d projections of stars. 
- * Author Antti Rautiainen. 
- */
-
 package starmap;
 import com.joml.matrix.Matrix3f;
 import com.joml.vector.Vector3f;
 
+/**
+ * Geometric operations for 3d projections of stars. 
+ * @author Antti Rautiainen 
+ */
 public class StarCube {
     private Vector3f center;
     private Matrix3f transformation;

@@ -1,9 +1,3 @@
-/*
- *  Generic frame for LWJGL by Antti Rautiainen. Command loop, window size and 
- * name my be defined by user. 
- */
-
-
 package Lwjglwrapper;
 
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -21,6 +15,11 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.glfw.GLFW.*;
   
+/**
+ * Generic frame for LWJGL. Command loop, window size and 
+ * name my be defined by user. 
+ * @author Antti Rautiainen
+ */
 public class LwjglFrame {
     
     private int width;

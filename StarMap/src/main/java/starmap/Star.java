@@ -1,10 +1,9 @@
-/*
- * Class for storing star data from HYG Database by David Nash. 
- * Author Antti Rautiainen. 
- */
-
 package starmap;
 
+/**
+ * Class for storing star data from HYG Database by David Nash. 
+ * @author Antti Rautiainen 
+ */
 public class Star {
     private int starID;     
     private String hip;    // might be ""

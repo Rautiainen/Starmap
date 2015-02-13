@@ -1,7 +1,3 @@
-/*
- *  Set of stars and link to command loop for its presentation in a LWJGL Frame by Antti Rautiainen.
- */
-
 package starmap;
 
 import Lwjglwrapper.GLoopObject;
@@ -10,7 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
+/**
+ *  Set of stars and link to command loop for its presentation in a LWJGL Frame 
+ *  @author Antti Rautiainen 
+ */
 public class Starset {
     private List<Star> stars;
     private GLoopObject gLoopObject;
