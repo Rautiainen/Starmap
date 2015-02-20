@@ -156,15 +156,21 @@ public class Vector3f {
         
         
     //Additional methods by Antti Rautiainen
-        
-    /** Multiplies this vector by the supplied matrix.  */
+
+    /**
+    * Multiplies this vector by the supplied matrix. 
+    * @author Antti Rautiainen
+    */
     public void mul(Matrix3f left) {
         set( left.m00 * x + left.m01*y + left.m02*z,
              left.m10 * x + left.m11*y + left.m12*z,
              left.m20 * x + left.m21*y + left.m22*z);
     }
     
-    /** Multiply this vector by the scalar value */
+    /**
+    * Multiply this vector by the scalar value 
+    * @author Antti Rautiainen
+    */
     public void mul(float scalar) {
         x *= scalar;
         y *= scalar;
@@ -172,5 +178,46 @@ public class Vector3f {
         
     }
     
-
+    /**
+    * Save corresponding spherical coordinates to r, phi, theta.
+    * @author Antti Rautiainen
+    */
+    public void saveSphericalCoords (Vector3f rthetaphi) {
+        rthetaphi.x = length();
+        rthetaphi.y = (float) Math.acos(z / rthetaphi.x);  //declination/inclination  gives a range from 0 to pi. 
+        rthetaphi.z = (float) Math.atan2(y,x);       //right ascension/azimuth gives a range from 0 to 2pi. 
+    }
+    /**
+    * Setting a vector from spherical coordinates r, phi, theta.
+    * @author Antti Rautiainen
+    */
+    public void setFromSphericalCoords (float r, float theta, float phi) {
+        float rsintheta = (float) (r * Math.sin(theta));
+        x = (float) (rsintheta * Math.cos(phi));
+        y = (float) (rsintheta * Math.sin(phi));
+        z =  (float) (r * Math.cos(theta));
+    }
+    
+    public void astronomicalUnitstoSI () {
+        y = (float) (Math.PI / 180.0) * (90 - y);
+        z = (float) ((Math.PI / 12.0) * z - positive10(z-12)*2*Math.PI);
+    }
+    
+    public void SIUnitstoAstronomical () {
+        y = (float) (90 - ((180.0 / Math.PI) * y));
+        z = (float) ((12.0 / Math.PI) * z) +  negative10(z)*24;
+    }
+    
+    float notnegative10(float x) {
+        return (float) ((1 + Math.signum(Math.signum(x) + 0.5))/2.0);
+    }
+    
+    float negative10(float x) {
+        return 1.0f - notnegative10(x);
+    }
+    
+    float positive10(float x) {
+         return (float) ((1 + Math.signum(Math.signum(x) - 0.5))/2.0);
+    }
+    
 }

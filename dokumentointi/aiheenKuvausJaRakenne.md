@@ -1,4 +1,3 @@
-
 Aihe: 3d Tähtikartta. 
 
 3d kartta näyttää kerrallaan kuutioprojektion osasta auringon lähiavaruutta. 
@@ -11,51 +10,67 @@ Toiminnot
 
 1. Lähtötila
 
-Näyttää tasasivuisen kuution avaruutta, jonka keskipiste on Otavan tähtikuvion keskipisteessä, ja jonka etusivu on 50 asteen levyinen kaistale pohjoisen pallonpuoliskon tähtitaivasta. 
+Käyttöliittymäikkuna on auki. 
 
-//2. Tähtien kirkkaus
+2. Tähtikartta
 
-Tähdet esitetään valkoisina palloina, joiden halkaisija on riippuvainen visuaalisesta magnitudista tarkkailupaikasta käsin. 
+2.1 Tähtikartan näyttäminen 
 
-//3. Käyttöliittymä 
+Tapahtuu painamalla Show-nappia, minkä jälkeen tähtikartta avautuu erillisessä ikkunassa kuution sisällä. 
 
-Käyttöliittymä on ikkuna jossa on seuraavat komponentit
+2.2. Tähtikartan alkutila
 
-//3.1. Kuution keskipisteen koordinaatit
+Alkutilassa tähtikarttaikkunassa näytetään tasasivuinen kuutio avaruutta, jonka keskipiste on Otavan tähtikuvion keskipisteessä, ja jonka etusivu on 50 asteen levyinen kaistale pohjoisen pallonpuoliskon tähtitaivasta. 
 
-Kuution keskipisteen koordinaatit näytetään sekä kartesiolaisessa- että pallokoordinaatistossa. Niitä voi myös editoidä käsin. 
+2.3 Tähtien kirkkaus tähtikartassa
 
-//3.2 Tarkkailupisteen koordinaatit
+Tähdet esitetään valkoisina palloina, joiden halkaisija on riippuvainen visuaalisesta magnitudista tarkkailupaikasta käsin. Näytetään vain tähdet joiden visuaalinen  magnitudi on 8 tai pienempi. 
 
-Tarkkailupisteen koordinaatit näytetään sekä kartesiolaisessa- että pallokoordinaatistossa. Niitä voi myös editoida käsin. 
-
-//3.3. Kuution sivun pituus parsekeina
-
-Voi editoida käsin. 
-
-//3.4. Kuution kääntäminen
-
-Tapahtuu hiirtä liikuttamalla. Ei muuta kuution keskipisteen eikä tarkkailupisteen koordinaatteja, eikä kuution sivun pituutta,.  
-
-//3.5. Tarkkailupisteen siirtäminen x, y tasossa nuolinäppäimillä
-
-Kuution keskipiste ja kuution sivun pituus eivät muuttuvat. 
-
-//3.6. Kuution sivun pituuden muuttaminen plus ja miinus-napista. 
-
-Tarkkailupiste ja kuution keskipiste eivät muutu. 
-
-//3.7. Mittakaava-palkki
-
-Verrannollinen lähimmän tahkon pituuden kuution ollessa perusasennossa kyljellään. 
-
-// 4. Tähtien nimet
+//2.4 Tähtien nimet
 
 Tulostuvat kuutioon
 
-// 5. Tähtien värit
+//2.5 Tähtien värit
 
-// 6. Sammakkoprojektio
+//2.6. Kuution kääntäminen
+
+Tapahtuu hiirtä liikuttamalla. Ei muuta kuution keskipisteen eikä tarkkailupisteen koordinaatteja, eikä kuution sivun pituutta.
+
+//2.7. Tarkkailupisteen siirtäminen x, y tasossa nuolinäppäimillä
+
+Kuution keskipiste ja kuution sivun pituus eivät muutu. 
+
+//2.8. Kuution sivun pituuden muuttaminen plus ja miinus-napista. 
+
+Tarkkailupiste ja kuution keskipiste eivät muutu. 
+
+3. Käyttöliittymä 
+
+Käyttöliittymä aktivoituu vain tähtikartan sulkemisen jälkeen. 
+
+Käyttöliittymä on ikkuna jossa on seuraavat komponentit.
+
+3.1. Show-nappi
+
+Avaa 3d tähtikartan alkutilassa. Katso kohta 2.1 ja 2.2. 
+
+3.2. Kuution keskipisteen koordinaatit
+
+Kuution keskipisteen koordinaatit näytetään sekä kartesiolaisessa- että pallokoordinaatistossa. Niitä voi myös editoidä käsin. Editointi lopetetaan painamalla enter. Editoidusta koordinaatista riippuvat koordinaatit päivittyvät heti editoinnin loputtua. 
+
+//3.3 Tarkkailupisteen koordinaatit
+
+Tarkkailupisteen koordinaatit näytetään sekä kartesiolaisessa- että pallokoordinaatistossa. Niitä voi myös editoida käsin. Editointi lopetetaan painamalla enter. Editoidusta koordinaatista riippuvat koordinaatit päivittyvät heti editoinnin loputtua. 
+
+//3.4. Kuution sivun pituus parsekeina
+
+Voi editoida käsin, tai painamalla + ja - nappeja. 
+
+//3.5. Mittakaava-palkki
+
+Verrannollinen lähimmän tahkon pituuden kuution ollessa perusasennossa kyljellään. 
+
+//4. Sammakkoprojektio
 	
 Ohjelma käyttää seuraavia vapaan lähdekoodin komponentteja ja tietokantoja
 
@@ -65,7 +80,7 @@ Ohjelma käyttää seuraavia vapaan lähdekoodin komponentteja ja tietokantoja
 
 -HYG Database of stars (http://astronexus.com/node/34) by David Nash 
 
-
+-LWJGL example code http://www.lwjgl.org/guide
 
 
 

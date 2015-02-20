@@ -58,10 +58,13 @@ public class Star {
         return ra;
     }
 
+    public double getDeclination() {
+        return declination;
+    }
+    
     public double getDistance() {
         return distance;
     }
-    
     
     public double getX() {
         return x;
@@ -74,6 +77,19 @@ public class Star {
     public double getZ() {
         return z;
     }
+
+    public double getMagnitude() {
+        return magnitude;
+    }
+
+  /**
+  * This counts visual magnitude of a star from a given observation spot
+  */    
+    public Double visualMag(Star star, double xofSpot, double yofSpot, double zofSpot) {
+        double relativedistance = Math.sqrt(Math.pow(star.x - xofSpot,2)+Math.pow(star.y - yofSpot,2) + Math.pow(star.z - zofSpot,2));
+        return star.absmag + 5*(Math.log10(relativedistance) - 1);           
+    }
+  
     
     @Override
     public String toString() {

@@ -76,6 +76,13 @@ public class StarTest {
        assertEquals(4.177065, star.getZ(),0.0000001);
     }
     
+    @Test
+    public void visualMagtest() {
+        assertEquals(star.getMagnitude(), star.visualMag(star, 0.0, 0.0, 0.0),0.0001);
+   }
+    
+  
+    
 
     
     

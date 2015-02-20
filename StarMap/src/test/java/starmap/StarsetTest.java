@@ -35,7 +35,10 @@ public class StarsetTest {
     Vector3f testcenter;
     Matrix3f testtransformation;
     StarCube testcube;
-    Starset Otava;
+    StarCube testcube2;
+    Starset bigDipper;
+    Starset defaultSet; 
+    Starset bigDipperAll;
     GLoopObject gloopobject;
     
     @Before
@@ -44,9 +47,13 @@ public class StarsetTest {
         testtransformation = new Matrix3f();
         testtransformation.identity();
         testtransformation.mul((float) 100);
-        testcube = new StarCube(testcenter,testtransformation); 
-        Otava = new Starset(testcube, "Dubhe", "Merak", "Phad", "Megrez", "Alioth", "Mizar", "Alkaid");
-        gloopobject = new StarGLoop(Otava,testcube);
+        Vector3f testobservationspot = new Vector3f(0,0,0);
+        testcube = new StarCube(testcenter,testobservationspot,testtransformation); 
+        bigDipper = new Starset(testcube, "Dubhe", "Merak", "Phad", "Megrez", "Alioth", "Mizar", "Alkaid");
+        defaultSet = new Starset();
+        testcube2 = new StarCube(bigDipper.center(),(float) (66 * (Math.PI/180)));
+        bigDipperAll = new Starset(testcube2);
+        gloopobject = new StarGLoop(bigDipper);
     }
     
     @After
@@ -58,13 +65,24 @@ public class StarsetTest {
     //
     
     @Test
-    public void Rightsize() {
-       assertEquals(7, Otava.getStars().size());
+    public void RightsizeTextConstructor() {
+       assertEquals(7, bigDipper.getStars().size());
     }
     
+    @Test
+    public void RightsizeDefaultConstructor() {
+       assertEquals(7, defaultSet.getStars().size());
+    }
+    
+    //could be thist test does not work. 
+    
+    @Test
+    public void RightsizeLoadConstructor() {
+       assertEquals(50, bigDipperAll.getStars().size());
+    }
     
     @Test
     public void RightgLoopObjecttype() {
-       assertEquals(gloopobject.getClass() , Otava.getgLoopObject().getClass());
+       assertEquals(gloopobject.getClass() , bigDipper.getgLoopObject().getClass());
     }
 }

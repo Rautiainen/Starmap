@@ -35,15 +35,19 @@ public class StarCubeTest {
     StarCube starcube3;
     Vector3f v1;
     Vector3f v2;
+    StarCube testcube; 
+    StarCube testcube2;
     StarCube testcube3;   
+    StarCube testcube4;
     
     @Before
     public void setUp() {
         Vector3f testcenter = new Vector3f(-50,-50,0);
+        Vector3f testobservationspot = new Vector3f(0,0,0);
         Matrix3f testtransformation = new Matrix3f();
         testtransformation.identity();
         testtransformation.mul((float) 100);
-        StarCube testcube = new StarCube(testcenter,testtransformation); 
+        testcube = new StarCube(testcenter,testobservationspot, testtransformation); 
         Starset Otava = new Starset(testcube, "Dubhe", "Merak", "Phad", "Megrez", "Alioth", "Mizar", "Alkaid");
         double sumx = 0, sumy = 0, sumz = 0;
         for (Star star1 : Otava.getStars()) {
@@ -54,12 +58,13 @@ public class StarCubeTest {
            
         int n = Otava.getStars().size();
         Vector3f testcenter2 = new Vector3f((float) sumx / n, (float) sumy / n, (float) sumz / n);
-        StarCube testcube2 = new StarCube(testcenter2,(float) (50 * (Math.PI/180))); 
+        testcube2 = new StarCube(testcenter2,(float) (50 * (Math.PI/180))); 
+        testcube4 = new StarCube(testcenter2,(float) (50 * (Math.PI/180))); 
         Otava2 = new Starset(testcube2, "Dubhe", "Merak", "Phad", "Megrez", "Alioth", "Mizar", "Alkaid");
         Vector3f testcenter3 = new Vector3f(0,0,0);
         Matrix3f testtransformation3 = new Matrix3f();
         testtransformation3.identity();
-        testcube3 = new StarCube(testcenter3,testtransformation3); 
+        testcube3 = new StarCube(testcenter3,testobservationspot, testtransformation3); 
         v1 = new Vector3f(0,0,0);
         v2 = new Vector3f(0,0,0);
          
@@ -83,5 +88,33 @@ public class StarCubeTest {
        v2.set(testcube3.transform(0, 0, 0));
        assertEquals(v1.length(),v2.length(),0.000001);
     }
+    
+    @Test
+    public void sphericaltest() {
+       v2 = testcube2.getCenterSpherical();
+       testcube2.setCenterSpherical(v2.x, v2.y,v2.z);
+       assertEquals(testcube4.getCenter().length(),testcube2.getCenter().length(),0.000001);
+    }
+    
+    @Test
+    public void sphericaltestrepeat() {
+       v2 = testcube2.getCenterSpherical();
+       testcube2.setCenterSpherical(v2.x, 6.7f,v2.z);
+       testcube4.setCenterSpherical(v2.x, 6.7f,v2.z);
+       v2 = new Vector3f();
+       v2 = testcube2.getCenterSpherical();
+       testcube2.setCenterSpherical(v2.x, 6.7f,v2.z);
+       v2 = new Vector3f(0,0,0);
+       v2 = testcube2.getCenterSpherical();
+       testcube2.setCenterSpherical(v2.x, 6.7f,v2.z);
+       v2 = new Vector3f(0,0,0);
+       v2 = testcube2.getCenterSpherical();
+       testcube2.setCenterSpherical(v2.x, 6.7f,v2.z);
+       v2 = new Vector3f(0,0,0);
+       v2 = testcube2.getCenterSpherical();
+       testcube2.setCenterSpherical(v2.x, 6.7f,v2.z);
+       assertEquals(testcube4.getCenter().length(),testcube2.getCenter().length(),0.000001);
+    }
+    
 
 }

@@ -37,8 +37,6 @@ public class LwjglFrame {
         this.name = name;
     }
    
-     
-      
     private void init() {
         glfwSetErrorCallback(errorCallback = errorCallbackPrint(System.err));
  
@@ -73,9 +71,6 @@ public class LwjglFrame {
   
         glfwMakeContextCurrent(window);
         glfwSwapInterval(1);
-  
-        
-        
         glfwShowWindow(window);
     }
     
@@ -87,7 +82,7 @@ public class LwjglFrame {
             loop(command);
             glfwDestroyWindow(window);
         } finally {
-            glfwTerminate();
+            // glfwTerminate(); //note: put this somewhere later on. 
         }
     }
     
@@ -116,8 +111,7 @@ public class LwjglFrame {
         GLContext.createFromCurrent();
   
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        while ( glfwWindowShouldClose(window) == GL_FALSE ) {
-                        
+        while ( glfwWindowShouldClose(window) == GL_FALSE ) {                       
             command.show();
             glfwSwapBuffers(window);
             glfwPollEvents();
