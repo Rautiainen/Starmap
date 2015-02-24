@@ -35,7 +35,24 @@ public class StarCube {
     public void setCenterSpherical(float r, float theta, float phi) {
         center.setFromSphericalCoords(r, theta, phi);
     }
+
+    public Vector3f getObservationSpot() {
+        return observationSpot;
+    }
+
+    public void setObservationSpot(Vector3f observationSpot) {
+        this.observationSpot = observationSpot;
+    }
     
+    public Vector3f getObservationSpotSpherical() {
+        Vector3f observationSPotSpherical = new Vector3f();
+        observationSpot.saveSphericalCoords(observationSPotSpherical);
+        return observationSPotSpherical;
+    }
+    
+    public void setObservationSpotSpherical(float r, float theta, float phi) {
+        observationSpot.setFromSphericalCoords(r, theta, phi);
+    }
 /**
  * this creates a cube with center in center, front edges of which 
  * are equally far from the zero, and width radians (right ascensions) 
@@ -79,9 +96,6 @@ public class StarCube {
         
     }
 
-    public Vector3f getObservationSpot() {
-        return observationSpot;
-    }
      
     
 /**

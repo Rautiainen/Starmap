@@ -184,7 +184,11 @@ public class Vector3f {
     */
     public void saveSphericalCoords (Vector3f rthetaphi) {
         rthetaphi.x = length();
-        rthetaphi.y = (float) Math.acos(z / rthetaphi.x);  //declination/inclination  gives a range from 0 to pi. 
+        if (rthetaphi.x == 0) {
+            rthetaphi.y = 0;
+        } else {
+            rthetaphi.y =  (float) Math.acos(z / rthetaphi.x);  //declination/inclination  gives a range from 0 to pi. 
+        }
         rthetaphi.z = (float) Math.atan2(y,x);       //right ascension/azimuth gives a range from 0 to 2pi. 
     }
     /**
@@ -208,16 +212,28 @@ public class Vector3f {
         z = (float) ((12.0 / Math.PI) * z) +  negative10(z)*24;
     }
     
-    float notnegative10(float x) {
-        return (float) ((1 + Math.signum(Math.signum(x) + 0.5))/2.0);
+    float notnegative10(float input) {
+        //return (float) ((1 + Math.signum(Math.signum(x) + 0.5))/2.0);
+        float output;
+        if (input >= 0) {
+            output = 1;
+        }
+        else {output = 0;}
+        return output;
     }
     
-    float negative10(float x) {
-        return 1.0f - notnegative10(x);
+    float negative10(float input) {
+        return 1.0f - notnegative10(input);
     }
     
-    float positive10(float x) {
-         return (float) ((1 + Math.signum(Math.signum(x) - 0.5))/2.0);
+    float positive10(float input) {
+       //  return (float) ((1 + Math.signum(Math.signum(x) - 0.5))/2.0);
+       float output;
+       if (input > 0) {
+            output = 1;
+       }
+       else {output = 0;}
+       return output;
     }
     
 }

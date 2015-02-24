@@ -24,7 +24,9 @@ public class StarGLoop implements GLoopObject {
     public void show() {
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       
-            //GL11.glRotated(0.25, 0.0, 1.0, 1.0);
+            if (starset.getbRotate()) {
+                GL11.glRotated(0.25, 0.0, 1.0, 1.0);
+            }
            
             //left side
             GL11.glBegin(GL11.GL_LINE_LOOP);

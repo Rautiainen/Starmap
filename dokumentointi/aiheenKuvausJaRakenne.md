@@ -58,6 +58,11 @@ Avaa 3d tähtikartan alkutilassa. Katso kohta 2.1 ja 2.2.
 
 Kuution keskipisteen koordinaatit näytetään sekä kartesiolaisessa- että pallokoordinaatistossa. Niitä voi myös editoidä käsin. Editointi lopetetaan painamalla enter. Editoidusta koordinaatista riippuvat koordinaatit päivittyvät heti editoinnin loputtua. 
 
+3.3. Kuution pyörittäminen
+
+Mikäli valintalaatikko "rotate" on valittu, tähtikartta pyörii näytettäessä samanaikaisesti y- ja z-akseleiden ympäri. Käännös on 0.25 
+astetta per iteraatioaskel, iteraatioaskeleen nopeus riippuu tietokoneen laskentatehosta ja siitä kuinka monta tähteä kuutioon on jaettu. 
+
 //3.3 Tarkkailupisteen koordinaatit
 
 Tarkkailupisteen koordinaatit näytetään sekä kartesiolaisessa- että pallokoordinaatistossa. Niitä voi myös editoida käsin. Editointi lopetetaan painamalla enter. Editoidusta koordinaatista riippuvat koordinaatit päivittyvät heti editoinnin loputtua. 

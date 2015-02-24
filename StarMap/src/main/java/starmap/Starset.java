@@ -16,7 +16,7 @@ public class Starset {
     private List<Star> stars;
     private StarCube starcube;
     private GLoopObject gLoopObject;
-    
+    private boolean bRotate;
     
     // private double edgelength = 0.6; //has this been used?
     
@@ -27,6 +27,7 @@ public class Starset {
         stars = new ArrayList<Star>();
         this.starcube = starcube;
         load(starcube);
+        bRotate = false;
     }      
     
     /**
@@ -63,7 +64,7 @@ public class Starset {
         }
         
         gLoopObject = new StarGLoop(this);
-        
+        bRotate = false;
     }
 
     /**
@@ -101,7 +102,7 @@ public class Starset {
         
         this.starcube = new StarCube(center(),(float) (66 * (Math.PI/180)));
         gLoopObject = new StarGLoop(this);
-        
+        bRotate = false;
     }
     
     /**
@@ -119,10 +120,7 @@ public class Starset {
         return new Vector3f((float) sumx / n, (float) sumy / n, (float) sumz / n);
     }
     
-    public GLoopObject getgLoopObject() {
-        return gLoopObject;
-    }
-    
+   
     public List<Star> getStars() {
         return stars;
     }  
@@ -130,6 +128,19 @@ public class Starset {
     public StarCube getStarcube() {
         return starcube;
     }
+    
+    public GLoopObject getgLoopObject() {
+        return gLoopObject;
+    }
+    
+    public boolean getbRotate() {
+        return bRotate;
+    }
+    
+    public void setbRotate(boolean bRotate) {
+        this.bRotate = bRotate;
+    }
+    
     
     public void print() {
         for (Star star : stars) {
