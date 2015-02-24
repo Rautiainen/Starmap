@@ -8,7 +8,7 @@ Ohjelman pitäisi tällöin toimia normaalisti.
 
 java -jar Starmapfat.jar
 
-Tällöin avautuu käyttöliittymä, jolla voi hallita tähtinäkymää. "Show"-nappainta painamalla saa esiin tähtinäkymän, siinä on 66 askeleen levynen kappale pohjoista tähtitaivasta jossa on Otava. Näkymä pyörii jos valintalaatikko "rotate" on valittu. 
+Tällöin avautuu käyttöliittymä, jolla voi hallita tähtinäkymää. "Show"-nappainta painamalla saa esiin tähtinäkymän, siinä on 65 askeleen levynen kappale pohjoista tähtitaivasta jossa on Otava. Näkymä pyörii jos valintalaatikko "rotate" on valittu. 
 
 Tähtinäkymää avaessa ohjelma tulostaa kuution sisään osuneiden tähtien perinteiset nimet stdoutputiin, tämä toiminto on debuggausta varten ja se poistetaan palautusversiosta. Vain harvoilla tähdillä on perinteisiä nimiä. 
 

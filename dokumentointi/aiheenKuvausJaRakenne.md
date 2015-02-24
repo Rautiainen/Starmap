@@ -20,7 +20,7 @@ Tapahtuu painamalla Show-nappia, minkä jälkeen tähtikartta avautuu erillisess
 
 2.2. Tähtikartan alkutila
 
-Alkutilassa tähtikarttaikkunassa näytetään tasasivuinen kuutio avaruutta, jonka keskipiste on Otavan tähtikuvion keskipisteessä, ja jonka etusivu on 50 asteen levyinen kaistale pohjoisen pallonpuoliskon tähtitaivasta. 
+Alkutilassa tähtikarttaikkunassa näytetään tasasivuinen kuutio avaruutta, jonka keskipiste on Otavan tähtikuvion keskipisteessä, ja jonka etusivu on 65 asteen levyinen kaistale pohjoisen pallonpuoliskon tähtitaivasta. 
 
 2.3 Tähtien kirkkaus tähtikartassa
 
