@@ -53,6 +53,11 @@ public class StarCube {
     public void setObservationSpotSpherical(float r, float theta, float phi) {
         observationSpot.setFromSphericalCoords(r, theta, phi);
     }
+    
+    public float getEdgeLength() {   
+        Vector3f xdirection = new Vector3f(transformation.m00,transformation.m10, transformation.m20);
+        return 2*xdirection.length();
+    }
 /**
  * this creates a cube with center in center, front edges of which 
  * are equally far from the zero, and width radians (right ascensions) 
