@@ -18,7 +18,7 @@ Demoja:
 
 1) Seulaset (avoin tähtijoukko Härän tähtikuviossa). Aseta ensin declination =24, paina enter. sitten right ascension = 3.750, paina enter. Sitten distance = 123 (parsekia), paina enter. Sitten valitse checkbox "rotate" ja paina "show". 
 
-2) Aurinkokunnan ympäristö lähiavaruudessa. Käynnistä uudestaan. Aseta edgelength = 70 (parsekia), valitse checbox rotate ja paina "show". Nyt aurinko osuu laatikon sisään, Otava tuskin erottuu koska siitä ollaan matkattu 74 parsekia vastakkaiseen suuntaan. 
+2) Aurinkokunnan ympäristö lähiavaruudessa. Käynnistä uudestaan. Aseta edgelength = 70 (parsekia), valitse checbox rotate ja paina "show". Nyt aurinko osuu laatikon sisään, Otava tuskin erottuu koska aurinkokunnasta ollaan matkattu 74 parsekia vastakkaiseen suuntaan. 
 
 3) Linnunrata. Käynnistä uudestaan. Aseta edgelength = 2000 (parsekia), valitse checkbox = rotate ja valitse "show". Olemme matkustaneet etäälle ja vain tietokannan kaikista kirkkaimmat tähdet näkyvät. Ne ovat kuitenkin selvästi kiekkomaisessa muodostelmassa. Linnunradan halkaisia pystysuunnassa on n. 600 parsekia. 
 
