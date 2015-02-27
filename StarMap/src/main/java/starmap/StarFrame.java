@@ -1,6 +1,6 @@
 package starmap;
 
-import Lwjglwrapper.LwjglFrame;
+import lwjglwrapper.LwjglFrame;
 
 /**
  *  LWJGL frame for presentation of stars 

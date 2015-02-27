@@ -22,6 +22,14 @@
         </goals>
     </action>
     <action>
+        <actionName>CUSTOM-checkstyle</actionName>
+        <displayName>Checkstyle</displayName>
+        <goals>
+            <goal>jxr:jxr</goal>
+            <goal>checkstyle:checkstyle</goal>
+        </goals>
+    </action>
+    <action>
             <actionName>run</actionName>
             <packagings>
                 <packaging>jar</packaging>

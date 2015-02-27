@@ -35,7 +35,7 @@ public class Matrix3f {
     public float m22;
     
     
-   public Matrix3f() {
+    public Matrix3f() {
         super();
     }
 
@@ -86,28 +86,28 @@ public class Matrix3f {
 
     /** Multiplies this matrix by the supplied matrix. This matrix will be the left-sided one */
     public void mul(Matrix3f right) {
-        set( this.m00 * right.m00 + this.m10 * right.m01 + this.m20 * right.m02,
-             this.m01 * right.m00 + this.m11 * right.m01 + this.m21 * right.m02,
-             this.m02 * right.m00 + this.m12 * right.m01 + this.m22 * right.m02,
-             this.m00 * right.m10 + this.m10 * right.m11 + this.m20 * right.m12,
-             this.m01 * right.m10 + this.m11 * right.m11 + this.m21 * right.m12,
-             this.m02 * right.m10 + this.m12 * right.m11 + this.m22 * right.m12,
-             this.m00 * right.m20 + this.m10 * right.m21 + this.m20 * right.m22,
-             this.m01 * right.m20 + this.m11 * right.m21 + this.m21 * right.m22,
-             this.m02 * right.m20 + this.m12 * right.m21 + this.m22 * right.m22 );
+        set(this.m00 * right.m00 + this.m10 * right.m01 + this.m20 * right.m02,
+            this.m01 * right.m00 + this.m11 * right.m01 + this.m21 * right.m02,
+            this.m02 * right.m00 + this.m12 * right.m01 + this.m22 * right.m02,
+            this.m00 * right.m10 + this.m10 * right.m11 + this.m20 * right.m12,
+            this.m01 * right.m10 + this.m11 * right.m11 + this.m21 * right.m12,
+            this.m02 * right.m10 + this.m12 * right.m11 + this.m22 * right.m12,
+            this.m00 * right.m20 + this.m10 * right.m21 + this.m20 * right.m22,
+            this.m01 * right.m20 + this.m11 * right.m21 + this.m21 * right.m22,
+            this.m02 * right.m20 + this.m12 * right.m21 + this.m22 * right.m22);
     }
     
     /** Multiplies the left matrix by the right, and stores the results in dest. Does not modify the left or right matrices */
     public static void mul(Matrix3f left, Matrix3f right, Matrix3f dest) {
-        dest.set( left.m00 * right.m00 + left.m10 * right.m01 + left.m20 * right.m02,
-                  left.m01 * right.m00 + left.m11 * right.m01 + left.m21 * right.m02,
-                  left.m02 * right.m00 + left.m12 * right.m01 + left.m22 * right.m02,
-                  left.m00 * right.m10 + left.m10 * right.m11 + left.m20 * right.m12,
-                  left.m01 * right.m10 + left.m11 * right.m11 + left.m21 * right.m12,
-                  left.m02 * right.m10 + left.m12 * right.m11 + left.m22 * right.m12,
-                  left.m00 * right.m20 + left.m10 * right.m21 + left.m20 * right.m22,
-                  left.m01 * right.m20 + left.m11 * right.m21 + left.m21 * right.m22,
-                  left.m02 * right.m20 + left.m12 * right.m21 + left.m22 * right.m22 );
+        dest.set(left.m00 * right.m00 + left.m10 * right.m01 + left.m20 * right.m02,
+                 left.m01 * right.m00 + left.m11 * right.m01 + left.m21 * right.m02,
+                 left.m02 * right.m00 + left.m12 * right.m01 + left.m22 * right.m02,
+                 left.m00 * right.m10 + left.m10 * right.m11 + left.m20 * right.m12,
+                 left.m01 * right.m10 + left.m11 * right.m11 + left.m21 * right.m12,
+                 left.m02 * right.m10 + left.m12 * right.m11 + left.m22 * right.m12,
+                 left.m00 * right.m20 + left.m10 * right.m21 + left.m20 * right.m22,
+                 left.m01 * right.m20 + left.m11 * right.m21 + left.m21 * right.m22,
+                 left.m02 * right.m20 + left.m12 * right.m21 + left.m22 * right.m22);
     }
     
     /** Multiplies the left matrix by the right, and stores the results in dest. Does not modify the left or right matrices. 
@@ -184,16 +184,15 @@ public class Matrix3f {
         }
         s = 1.0f / s;
 
-       set( (m11 * m22) - (m21 * m12),
-           -((m01 * m22) - (m21 * m02)),
+        set((m11 * m22) - (m21 * m12),
+            -((m01 * m22) - (m21 * m02)),
             (m01 * m12) - (m11 * m02),
-           -((m10 * m22) - (m20 * m12)),
+            -((m10 * m22) - (m20 * m12)),
             (m00 * m22) - (m20 * m02),
-           -((m00 * m12) - (m10 * m02)),
+            -((m00 * m12) - (m10 * m02)),
             (m10 * m21) - (m20 * m11),
-           -((m00 * m21) - (m20 * m01)),
-            (m00 * m11) - (m10 * m01));
-        
+            -((m00 * m21) - (m20 * m01)),
+            (m00 * m11) - (m10 * m01));    
         mul(s);
     }
     
@@ -204,15 +203,15 @@ public class Matrix3f {
             return;
         }
         s = 1.0f / s;
-        dest.set(  ((source.m11 * source.m22) - (source.m21 * source.m12)) * s,
-                  -((source.m01 * source.m22) - (source.m21 * source.m02)) * s,
-                   ((source.m01 * source.m12) - (source.m11 * source.m02)) * s,
-                  -((source.m10 * source.m22) - (source.m20 * source.m12)) * s,
-                   ((source.m00 * source.m22) - (source.m20 * source.m02)) * s,
-                  -((source.m00 * source.m12) - (source.m10 * source.m02)) * s,
-                   ((source.m10 * source.m21) - (source.m20 * source.m11)) * s,
-                  -((source.m00 * source.m21) - (source.m20 * source.m01)) * s,
-                   ((source.m00 * source.m11) - (source.m10 * source.m01)) * s  );
+        dest.set(((source.m11 * source.m22) - (source.m21 * source.m12)) * s,
+                 -((source.m01 * source.m22) - (source.m21 * source.m02)) * s,
+                  ((source.m01 * source.m12) - (source.m11 * source.m02)) * s,
+                 -((source.m10 * source.m22) - (source.m20 * source.m12)) * s,
+                  ((source.m00 * source.m22) - (source.m20 * source.m02)) * s,
+                 -((source.m00 * source.m12) - (source.m10 * source.m02)) * s,
+                  ((source.m10 * source.m21) - (source.m20 * source.m11)) * s,
+                 -((source.m00 * source.m21) - (source.m20 * source.m01)) * s,
+                  ((source.m00 * source.m11) - (source.m10 * source.m01)) * s);
     }
     
     /** Inverts the source matrix and stores the results in dest. Does not modify the source
@@ -381,8 +380,14 @@ public class Matrix3f {
         this.m22 = 1.0f;
     }
     
-    //Additional methods by Antti Rautiainen
     
+    /**
+    * Building a matrix from 3 column vectors 
+    * @author Antti Rautiainen
+     * @param firstcol
+     * @param secondcol
+     * @param thirdcol
+    */
     public Matrix3f(Vector3f firstcol, Vector3f secondcol, Vector3f thirdcol) {
         this.m00 = firstcol.x;
         this.m01 = secondcol.x;

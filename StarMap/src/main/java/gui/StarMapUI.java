@@ -6,6 +6,7 @@
 package gui;
 
 import com.joml.vector.Vector3f;
+import java.util.Scanner;
 import starmap.Star;
 import starmap.StarCube;
 import starmap.StarFrame;
@@ -28,24 +29,24 @@ public class StarMapUI extends javax.swing.JFrame {
     }
     
     private void updateTextFields() {
-        jTextFieldCenterX.setText(String.format("%.3f",starSelection.getStarcube().getCenter().x));
-        jTextFieldCenterY.setText(String.format("%.3f",starSelection.getStarcube().getCenter().y));
-        jTextFieldCenterZ.setText(String.format("%.3f",starSelection.getStarcube().getCenter().z));
+        jTextFieldCenterX.setText(String.format("%.3f", starSelection.getStarcube().getCenter().x));
+        jTextFieldCenterY.setText(String.format("%.3f", starSelection.getStarcube().getCenter().y));
+        jTextFieldCenterZ.setText(String.format("%.3f", starSelection.getStarcube().getCenter().z));
         Vector3f rthetaphi = new Vector3f();
         rthetaphi = starSelection.getStarcube().getCenterSpherical();
-        rthetaphi.SIUnitstoAstronomical();
+        rthetaphi.siUnitstoAstronomical();
         jTextFieldCenterDistance.setText(String.format("%.3f", rthetaphi.x));
         jTextFieldCenterDec.setText(String.format("%.3f", rthetaphi.y));
         jTextFieldCenterRAsc.setText(String.format("%.3f", rthetaphi.z));
-        jTextFieldObservationSpotX.setText(String.format("%.3f",starSelection.getStarcube().getObservationSpot().x));
-        jTextFieldObservationSpotY.setText(String.format("%.3f",starSelection.getStarcube().getObservationSpot().y));
-        jTextFieldObservationSpotZ.setText(String.format("%.3f",starSelection.getStarcube().getObservationSpot().z));
+        jTextFieldObservationSpotX.setText(String.format("%.3f", starSelection.getStarcube().getObservationSpot().x));
+        jTextFieldObservationSpotY.setText(String.format("%.3f", starSelection.getStarcube().getObservationSpot().y));
+        jTextFieldObservationSpotZ.setText(String.format("%.3f", starSelection.getStarcube().getObservationSpot().z));
         rthetaphi = starSelection.getStarcube().getObservationSpotSpherical();
-        rthetaphi.SIUnitstoAstronomical();
+        rthetaphi.siUnitstoAstronomical();
         jTextFieldObservationSpotDistance.setText(String.format("%.3f", rthetaphi.x));
         jTextFieldObservationSpotDec.setText(String.format("%.3f", rthetaphi.y));
         jTextFieldObservationSpotRAsc.setText(String.format("%.3f", rthetaphi.z));
-        jTextFieldEdgeLength.setText(String.format("%.3f", starSelection.getStarcube().getEdgeLength()));
+        jTextFieldEdgeLength.setText(String.format("%.3f", starSelection.getStarcube().getEdgelength()));
     }
  
     
@@ -86,12 +87,11 @@ public class StarMapUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jTextFieldEdgeLength = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButtonShow = new javax.swing.JButton();
         jCheckBoxRotate = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Starmap Controls");
 
         jLabel1.setText("Center of the cube");
 
@@ -162,31 +162,57 @@ public class StarMapUI extends javax.swing.JFrame {
         jLabel13.setText("declination:");
 
         jTextFieldObservationSpotX.setText("jTextField7");
+        jTextFieldObservationSpotX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldObservationSpotXActionPerformed(evt);
+            }
+        });
 
         jTextFieldObservationSpotY.setText("jTextField8");
+        jTextFieldObservationSpotY.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldObservationSpotYActionPerformed(evt);
+            }
+        });
 
         jTextFieldObservationSpotZ.setText("jTextField9");
+        jTextFieldObservationSpotZ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldObservationSpotZActionPerformed(evt);
+            }
+        });
 
         jTextFieldObservationSpotDistance.setText("jTextField10");
+        jTextFieldObservationSpotDistance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldObservationSpotDistanceActionPerformed(evt);
+            }
+        });
 
         jTextFieldObservationSpotRAsc.setText("jTextField11");
+        jTextFieldObservationSpotRAsc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldObservationSpotRAscActionPerformed(evt);
+            }
+        });
 
         jTextFieldObservationSpotDec.setText("jTextField12");
+        jTextFieldObservationSpotDec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldObservationSpotDecActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Observation spot");
 
         jLabel15.setText("Edge length");
 
         jTextFieldEdgeLength.setText("jTextField13");
-
-        jButton1.setText("+");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldEdgeLength.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jTextFieldEdgeLengthActionPerformed(evt);
             }
         });
-
-        jButton2.setText("-");
 
         jButtonShow.setText("Show");
         jButtonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -217,30 +243,18 @@ public class StarMapUI extends javax.swing.JFrame {
                                 .addComponent(jLabel15)
                                 .addGap(6, 6, 6)
                                 .addComponent(jTextFieldEdgeLength, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextFieldCenterZ, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldObservationSpotZ, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel11))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(11, 11, 11)
-                                                .addComponent(jLabel5))))))
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(3, 3, 3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCenterZ, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldObservationSpotZ, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel11)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,43 +269,37 @@ public class StarMapUI extends javax.swing.JFrame {
                                         .addComponent(jTextFieldCenterX, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addComponent(jTextFieldObservationSpotY, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldCenterY, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldObservationSpotDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(jTextFieldCenterDistance, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextFieldCenterY, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldObservationSpotY, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldObservationSpotDec, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCenterDec, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel12))
-                                .addGap(2, 2, 2)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldObservationSpotRAsc, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldCenterRAsc, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
+                            .addComponent(jTextFieldObservationSpotDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldCenterDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldObservationSpotDec, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(jTextFieldCenterDec, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jCheckBoxRotate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                                .addComponent(jButtonShow, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonShow, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(3, 3, 3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCenterRAsc, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldObservationSpotRAsc, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,7 +318,7 @@ public class StarMapUI extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jTextFieldCenterDec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldCenterRAsc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -330,8 +338,6 @@ public class StarMapUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
                     .addComponent(jButtonShow)
                     .addComponent(jTextFieldEdgeLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jCheckBoxRotate))
@@ -344,7 +350,13 @@ public class StarMapUI extends javax.swing.JFrame {
     private void jTextFieldCenterXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCenterXActionPerformed
         Vector3f center = new Vector3f();
         center = starSelection.getStarcube().getCenter();
-        center = new Vector3f(Float.parseFloat(jTextFieldCenterX.getText()),center.y, center.z);
+        float floatinput = center.x;
+        try {
+            floatinput = Float.parseFloat(jTextFieldCenterX.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        center = new Vector3f(floatinput, center.y, center.z);
         starSelection.getStarcube().setCenter(center);
         updateTextFields();
     }//GEN-LAST:event_jTextFieldCenterXActionPerformed
@@ -352,30 +364,38 @@ public class StarMapUI extends javax.swing.JFrame {
     private void jTextFieldCenterRAscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCenterRAscActionPerformed
         Vector3f centerSpherical = new Vector3f();
         centerSpherical = starSelection.getStarcube().getCenterSpherical();
-        centerSpherical.SIUnitstoAstronomical();
-        centerSpherical.z = Float.parseFloat(jTextFieldCenterRAsc.getText());
+        centerSpherical.siUnitstoAstronomical();
+        float floatinput = centerSpherical.x;
+        try {
+            floatinput = Float.parseFloat(jTextFieldCenterRAsc.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        centerSpherical.z = floatinput;
         centerSpherical.astronomicalUnitstoSI();
-        starSelection.getStarcube().setCenterSpherical(centerSpherical.x,centerSpherical.y,centerSpherical.z);
+        starSelection.getStarcube().moveCenterAngle(centerSpherical.y, centerSpherical.z);
         updateTextFields();
     }//GEN-LAST:event_jTextFieldCenterRAscActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowActionPerformed
         //comment for debugging
         starSelection.load(starSelection.getStarcube());
         new StarFrame().execute(starSelection.getgLoopObject());
-        System.out.println("Proper names:");
-        starSelection.printProperNames(); //for debugging
+        //System.out.println("Proper names:"); //for debugging
+        //starSelection.printProperNames(); //for debugging
         // starSelection.print(); //for debugging
     }//GEN-LAST:event_jButtonShowActionPerformed
 
     private void jTextFieldCenterYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCenterYActionPerformed
         Vector3f center = new Vector3f();
         center = starSelection.getStarcube().getCenter();
-        center = new Vector3f(center.x, Float.parseFloat(jTextFieldCenterY.getText()), center.z);
+        float floatinput = center.y;
+        try {
+            floatinput = Float.parseFloat(jTextFieldCenterY.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        center = new Vector3f(center.x, floatinput, center.z);
         starSelection.getStarcube().setCenter(center);
         updateTextFields();
     }//GEN-LAST:event_jTextFieldCenterYActionPerformed
@@ -383,7 +403,13 @@ public class StarMapUI extends javax.swing.JFrame {
     private void jTextFieldCenterZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCenterZActionPerformed
         Vector3f center = new Vector3f();
         center = starSelection.getStarcube().getCenter();
-        center = new Vector3f(center.x, center.y, Float.parseFloat(jTextFieldCenterZ.getText()));
+        float floatinput = center.z;
+        try {
+            floatinput = Float.parseFloat(jTextFieldCenterZ.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        center = new Vector3f(center.x, center.y, floatinput);
         starSelection.getStarcube().setCenter(center);
         updateTextFields();
     }//GEN-LAST:event_jTextFieldCenterZActionPerformed
@@ -391,24 +417,135 @@ public class StarMapUI extends javax.swing.JFrame {
     private void jTextFieldCenterDistanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCenterDistanceActionPerformed
         Vector3f centerSpherical = new Vector3f();
         centerSpherical = starSelection.getStarcube().getCenterSpherical();
-        //Distance unit is parsec, astronomical unit. 
-        starSelection.getStarcube().setCenterSpherical(Float.parseFloat(jTextFieldCenterDistance.getText()),centerSpherical.y, centerSpherical.z);
+        float floatinput = centerSpherical.x;
+        try {
+            floatinput = Float.parseFloat(jTextFieldCenterDistance.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        //Distance unit is parsec, astronomical unit.
+        starSelection.getStarcube().moveCenterDistance(floatinput);
         updateTextFields();
     }//GEN-LAST:event_jTextFieldCenterDistanceActionPerformed
 
     private void jTextFieldCenterDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCenterDecActionPerformed
         Vector3f centerSpherical = new Vector3f();
         centerSpherical = starSelection.getStarcube().getCenterSpherical();
-        centerSpherical.SIUnitstoAstronomical();
-        centerSpherical.y = Float.parseFloat(jTextFieldCenterDec.getText());
+        centerSpherical.siUnitstoAstronomical();
+        float floatinput = centerSpherical.y;
+        try {
+            floatinput = Float.parseFloat(jTextFieldCenterDec.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        centerSpherical.y = floatinput;
         centerSpherical.astronomicalUnitstoSI();
-        starSelection.getStarcube().setCenterSpherical(centerSpherical.x,centerSpherical.y,centerSpherical.z);
+        starSelection.getStarcube().moveCenterAngle(centerSpherical.y, centerSpherical.z);
         updateTextFields();
     }//GEN-LAST:event_jTextFieldCenterDecActionPerformed
 
     private void jCheckBoxRotateStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBoxRotateStateChanged
         starSelection.setbRotate(jCheckBoxRotate.isSelected());
     }//GEN-LAST:event_jCheckBoxRotateStateChanged
+
+    private void jTextFieldObservationSpotXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservationSpotXActionPerformed
+        Vector3f observationSpot = new Vector3f();
+        observationSpot = starSelection.getStarcube().getObservationSpot();
+        float floatinput = observationSpot.x;
+        try {
+            floatinput = Float.parseFloat(jTextFieldObservationSpotX.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        observationSpot = new Vector3f(floatinput,observationSpot.y, observationSpot.z);
+        starSelection.getStarcube().setObservationSpot(observationSpot);
+        updateTextFields();
+    }//GEN-LAST:event_jTextFieldObservationSpotXActionPerformed
+
+    private void jTextFieldObservationSpotYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservationSpotYActionPerformed
+        Vector3f observationSpot = new Vector3f();
+        observationSpot = starSelection.getStarcube().getObservationSpot();
+        float floatinput = observationSpot.y;
+        try {
+            floatinput = Float.parseFloat(jTextFieldObservationSpotY.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        observationSpot = new Vector3f(observationSpot.x, floatinput, observationSpot.z);
+        starSelection.getStarcube().setObservationSpot(observationSpot);
+        updateTextFields();
+    }//GEN-LAST:event_jTextFieldObservationSpotYActionPerformed
+
+    private void jTextFieldObservationSpotZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservationSpotZActionPerformed
+        Vector3f observationSpot = new Vector3f();
+        observationSpot = starSelection.getStarcube().getObservationSpot();
+        float floatinput = observationSpot.y;
+        try {
+            floatinput = Float.parseFloat(jTextFieldObservationSpotZ.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        observationSpot = new Vector3f(observationSpot.x, observationSpot.y, floatinput);
+        starSelection.getStarcube().setObservationSpot(observationSpot);
+        updateTextFields();
+    }//GEN-LAST:event_jTextFieldObservationSpotZActionPerformed
+
+    private void jTextFieldObservationSpotDistanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservationSpotDistanceActionPerformed
+        Vector3f observationSpotSpherical = new Vector3f();
+        observationSpotSpherical = starSelection.getStarcube().getObservationSpotSpherical();
+        //Distance unit is parsec, astronomical unit.
+        float floatinput = observationSpotSpherical.x;
+        try {
+            floatinput = Float.parseFloat(jTextFieldObservationSpotDistance.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        starSelection.getStarcube().setObservationSpotSpherical(floatinput, observationSpotSpherical.y, observationSpotSpherical.z);
+        updateTextFields();     
+    }//GEN-LAST:event_jTextFieldObservationSpotDistanceActionPerformed
+
+    private void jTextFieldObservationSpotDecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservationSpotDecActionPerformed
+        Vector3f observationSpotSpherical = new Vector3f();
+        observationSpotSpherical = starSelection.getStarcube().getObservationSpotSpherical();
+        observationSpotSpherical.siUnitstoAstronomical();
+        float floatinput = observationSpotSpherical.y;
+        try {
+            floatinput = Float.parseFloat(jTextFieldObservationSpotDec.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        observationSpotSpherical.y = floatinput;
+        observationSpotSpherical.astronomicalUnitstoSI();
+        starSelection.getStarcube().setObservationSpotSpherical(observationSpotSpherical.x, observationSpotSpherical.y, observationSpotSpherical.z);
+        updateTextFields();
+    }//GEN-LAST:event_jTextFieldObservationSpotDecActionPerformed
+
+    private void jTextFieldObservationSpotRAscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldObservationSpotRAscActionPerformed
+        Vector3f observationSpotSpherical = new Vector3f();
+        observationSpotSpherical = starSelection.getStarcube().getObservationSpotSpherical();
+        observationSpotSpherical.siUnitstoAstronomical();
+        float floatinput = observationSpotSpherical.z;
+        try {
+            floatinput = Float.parseFloat(jTextFieldObservationSpotRAsc.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        observationSpotSpherical.z = floatinput;
+        observationSpotSpherical.astronomicalUnitstoSI();
+        starSelection.getStarcube().setObservationSpotSpherical(observationSpotSpherical.x, observationSpotSpherical.y, observationSpotSpherical.z);
+        updateTextFields();
+    }//GEN-LAST:event_jTextFieldObservationSpotRAscActionPerformed
+
+    private void jTextFieldEdgeLengthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEdgeLengthActionPerformed
+        float floatinput = starSelection.getStarcube().getEdgelength();
+        try {
+            floatinput = Float.parseFloat(jTextFieldEdgeLength.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        starSelection.getStarcube().setEdgelength(floatinput);
+        updateTextFields();
+    }//GEN-LAST:event_jTextFieldEdgeLengthActionPerformed
     
           
         
@@ -462,11 +599,9 @@ public class StarMapUI extends javax.swing.JFrame {
             }
         });
         */
-        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonShow;
     private javax.swing.JCheckBox jCheckBoxRotate;
     private javax.swing.JLabel jLabel1;

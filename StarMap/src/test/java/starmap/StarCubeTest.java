@@ -39,11 +39,42 @@ public class StarCubeTest {
     StarCube testcube2;
     StarCube testcube3;   
     StarCube testcube4;
+
+    
+    Vector3f vec1;
+    Vector3f vec2;
+    Vector3f vec3;
+    Vector3f vec4;
+    Vector3f vec5;
+    Vector3f vec6;
+    Vector3f rthetaphi1;
+    Vector3f rthetaphi2;
+    Vector3f rthetaphi3;
+    Vector3f rthetaphi4;
+    Vector3f rthetaphi5;
+    Vector3f rthetaphi6;
+    float angle1;
+    float angle2;
+    float angle3;
+    
+    
     
     @Before
     public void setUp() {
         Vector3f testcenter = new Vector3f(-50,-50,0);
         Vector3f testobservationspot = new Vector3f(0,0,0);
+        
+        vec1 = new Vector3f((float) 1.0, (float) 0.0, (float) 0.0);
+        vec2 = new Vector3f((float) 0.0, (float) 1.0, (float) 0.0);
+        vec3 = new Vector3f((float) 0.0, (float) 0.0, (float) 1.0);
+        vec4 = new Vector3f((float) -1.0, (float) 0.0, (float) 0.0);
+        vec5 = new Vector3f((float) 0.0, (float) -1.0, (float) 0.0);
+        vec6 = new Vector3f((float) 0.0, (float) 0.0, (float) -1.0);
+        
+        angle1 = (float) Math.PI/2;
+        angle2 = 2*angle1;
+        angle3 = angle1 + angle2;
+        
         Matrix3f testtransformation = new Matrix3f();
         testtransformation.identity();
         testtransformation.mul((float) 100);

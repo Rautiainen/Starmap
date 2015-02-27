@@ -26,7 +26,7 @@ public class Star {
     private double y; 
     private double z;
     
-    public Star (String csvLine) {
+    public Star(String csvLine) {
         String[] parts = csvLine.split(",");
         starID = Integer.parseInt(parts[0]);
         hip = parts[1];
@@ -84,16 +84,25 @@ public class Star {
 
   /**
   * This counts visual magnitude of a star from a given observation spot
+  * @author Antti Rautiainen
+     * @param star star magnitude of which is checked
+     * @param xofSpot x coordinate of observation spot
+     * @param yofSpot y ''
+     * @param zofSpot z ''
+     * @return returns visual magnitude as double
   */    
     public Double visualMag(Star star, double xofSpot, double yofSpot, double zofSpot) {
-        double relativedistance = Math.sqrt(Math.pow(star.x - xofSpot,2)+Math.pow(star.y - yofSpot,2) + Math.pow(star.z - zofSpot,2));
-        return star.absmag + 5*(Math.log10(relativedistance) - 1);           
+        double relativedistance = Math.sqrt(Math.pow(star.x - xofSpot, 2) + Math.pow(star.y - yofSpot, 2) + Math.pow(star.z - zofSpot, 2));
+        return star.absmag + 5 * (Math.log10(relativedistance) - 1);
     }
   
-    
+    /**
+    * toString function is only needed for debugging.
+    */
+    /*
     @Override
     public String toString() {
-       return starID + "," 
+        return starID + "," 
                + hd + "," 
                + hr + "," 
                + gilese + "," 
@@ -112,7 +121,7 @@ public class Star {
                + x + "," 
                + y + "," 
                + z;
-     }
-    
+    }
+    */
     
 }

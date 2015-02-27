@@ -1,6 +1,6 @@
 package starmap;
 
-import Lwjglwrapper.GLoopObject;
+import lwjglwrapper.GLoopObject;
 import com.joml.matrix.Matrix3f;
 import com.joml.vector.Vector3f;
 import java.io.File;
@@ -22,20 +22,22 @@ public class Starset {
     
     /**
     * This constructor loads all stars of visual magnitude smaller than 8 a given StarCube
+     * @param starcube
     */
     public Starset(StarCube starcube) {
-        stars = new ArrayList<Star>();
+        stars = new ArrayList<>();
         this.starcube = starcube;
         load(starcube);
         bRotate = false;
     }      
     
     /**
-    * This constructor loads any set of stars, proper names of which given in args 
-    */
+    * This constructor loads any set of stars, proper names of which given in args
+     * @param starcube
+     * @param args */
     public Starset(StarCube starcube, String... args) {
         
-        stars = new ArrayList<Star>();
+        stars = new ArrayList<>();
         this.starcube = starcube;
         File csvStardata = new File("hygdata_v3.csv");
         //File csvStardata = new File("hygsmalldata.csv");
@@ -58,7 +60,7 @@ public class Starset {
             star = new Star(csvString);
             for (String arg : args) {
                 if (arg.equals(star.getProperName())) {
-                stars.add(star);
+                    stars.add(star);
                 }
             }
         }
@@ -95,12 +97,12 @@ public class Starset {
             star = new Star(csvString);
             for (String arg : args) {
                 if (arg.equals(star.getProperName())) {
-                stars.add(star);
+                    stars.add(star);
                 }
             }
         }
         
-        this.starcube = new StarCube(center(),(float) (66 * (Math.PI/180)));
+        this.starcube = new StarCube(center(), (float) (66 * (Math.PI / 180)));
         gLoopObject = new StarGLoop(this);
         bRotate = false;
     }
@@ -112,9 +114,9 @@ public class Starset {
     public Vector3f center() {
         double sumx = 0, sumy = 0, sumz = 0;
         for (Star star1 : stars) {
-                sumx += star1.getX();
-                sumy += star1.getY();
-                sumz += star1.getZ();
+            sumx += star1.getX();
+            sumy += star1.getY();
+            sumz += star1.getZ();
         }
         int n = stars.size();
         return new Vector3f((float) sumx / n, (float) sumy / n, (float) sumz / n);
@@ -142,13 +144,15 @@ public class Starset {
     }
     
     
+    //Only used for debugging
+    /*
     public void print() {
         for (Star star : stars) {
             System.out.println(star.toString());
         }
         
     }
-    
+    */
     /**
     * loads all stars of visual magnitude smaller than 8 a given StarCube
      * @param starcube
@@ -178,7 +182,7 @@ public class Starset {
             //System.out.println(csvString); //for debugging
             star = new Star(csvString);
 
-            if (starcube.starInCube(star) && star.visualMag(star,x,y,z) <= 8) {
+            if (starcube.starInCube(star) && star.visualMag(star, x, y, z) <= 8) {
                 stars.add(star);
             }
         
@@ -188,6 +192,10 @@ public class Starset {
      
     }
     
+    /**
+    * Only used for debugging
+    */
+    /*
     public void printProperNames() {
         for (Star star : stars) {
             if (!star.getProperName().equals("")) {
@@ -195,6 +203,7 @@ public class Starset {
             } 
         }       
     }
+    */
     
 }
     

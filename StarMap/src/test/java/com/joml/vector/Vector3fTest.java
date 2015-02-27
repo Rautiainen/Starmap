@@ -91,33 +91,33 @@ public class Vector3fTest {
     
     @Test 
     public void zerorightascension() {
-        rthetaphi1.SIUnitstoAstronomical();
+        rthetaphi1.siUnitstoAstronomical();
         assertEquals(0.0, rthetaphi1.z,0.0001);
     }
     
     @Test 
     public void sixrightascension() {
-        rthetaphi2.SIUnitstoAstronomical();
+        rthetaphi2.siUnitstoAstronomical();
         assertEquals(6.0, rthetaphi2.z,0.0001);
     }
     
     
     @Test 
     public void twelverightascension() {
-        rthetaphi4.SIUnitstoAstronomical();
+        rthetaphi4.siUnitstoAstronomical();
         assertEquals(12.0, rthetaphi4.z,0.0001);
     }
     
     @Test 
     public void eighteenrightascension() {
-        rthetaphi5.SIUnitstoAstronomical();
+        rthetaphi5.siUnitstoAstronomical();
         assertEquals(18.0, rthetaphi5.z,0.0001);
     }
     
     @Test 
     public void SIUnitstoAstronomical1y() {
         v1.saveSphericalCoords(rthetaphi2);
-        rthetaphi1.SIUnitstoAstronomical();
+        rthetaphi1.siUnitstoAstronomical();
         rthetaphi1.astronomicalUnitstoSI();
          assertEquals(rthetaphi2.y,rthetaphi1.y,0.0001);
     }
@@ -125,7 +125,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical1z() {
         v1.saveSphericalCoords(rthetaphi2);
-        rthetaphi1.SIUnitstoAstronomical();
+        rthetaphi1.siUnitstoAstronomical();
         rthetaphi1.astronomicalUnitstoSI();
          assertEquals(rthetaphi2.z, rthetaphi1.z,0.0001);
          
@@ -134,7 +134,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical2y() {
         v2.saveSphericalCoords(rthetaphi1);
-        rthetaphi2.SIUnitstoAstronomical();
+        rthetaphi2.siUnitstoAstronomical();
         rthetaphi2.astronomicalUnitstoSI();
          assertEquals(rthetaphi1.y,rthetaphi2.y,0.0001);
          
@@ -143,7 +143,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical2z() {
         v2.saveSphericalCoords(rthetaphi1);
-        rthetaphi2.SIUnitstoAstronomical();
+        rthetaphi2.siUnitstoAstronomical();
         rthetaphi2.astronomicalUnitstoSI();
         assertEquals(rthetaphi1.z,rthetaphi2.z,0.0001); 
     }
@@ -151,7 +151,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical3y() {
         v3.saveSphericalCoords(rthetaphi1);
-        rthetaphi3.SIUnitstoAstronomical();
+        rthetaphi3.siUnitstoAstronomical();
         rthetaphi3.astronomicalUnitstoSI();
          assertEquals(rthetaphi1.y,rthetaphi3.y,0.0001);
          
@@ -160,7 +160,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical3z() {
         v3.saveSphericalCoords(rthetaphi1);
-        rthetaphi3.SIUnitstoAstronomical();
+        rthetaphi3.siUnitstoAstronomical();
         rthetaphi3.astronomicalUnitstoSI();
         assertEquals(rthetaphi1.z,rthetaphi3.z,0.0001); 
     }
@@ -168,7 +168,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical4y() {
         v4.saveSphericalCoords(rthetaphi1);
-        rthetaphi4.SIUnitstoAstronomical();
+        rthetaphi4.siUnitstoAstronomical();
         rthetaphi4.astronomicalUnitstoSI();
          assertEquals(rthetaphi1.y,rthetaphi4.y,0.0001);
          
@@ -177,7 +177,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical4z() {
         v4.saveSphericalCoords(rthetaphi1);
-        rthetaphi4.SIUnitstoAstronomical();
+        rthetaphi4.siUnitstoAstronomical();
         rthetaphi4.astronomicalUnitstoSI();
         assertEquals(rthetaphi1.z,rthetaphi4.z,0.0001); 
     }
@@ -185,7 +185,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical5y() {
         v5.saveSphericalCoords(rthetaphi1);
-        rthetaphi3.SIUnitstoAstronomical();
+        rthetaphi3.siUnitstoAstronomical();
         rthetaphi3.astronomicalUnitstoSI();
         assertEquals(rthetaphi1.y,rthetaphi5.y,0.0001);
          
@@ -194,7 +194,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical5z() {
         v5.saveSphericalCoords(rthetaphi1);
-        rthetaphi5.SIUnitstoAstronomical();
+        rthetaphi5.siUnitstoAstronomical();
         rthetaphi5.astronomicalUnitstoSI();
         assertEquals(rthetaphi1.z,rthetaphi5.z,0.0001); 
     }
@@ -202,7 +202,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical6y() {
         v6.saveSphericalCoords(rthetaphi1);
-        rthetaphi6.SIUnitstoAstronomical();
+        rthetaphi6.siUnitstoAstronomical();
         rthetaphi6.astronomicalUnitstoSI();
         assertEquals(rthetaphi1.y,rthetaphi6.y,0.0001);
          
@@ -211,7 +211,7 @@ public class Vector3fTest {
     @Test 
     public void SIUnitstoAstronomical6z() {
         v6.saveSphericalCoords(rthetaphi1);
-        rthetaphi6.SIUnitstoAstronomical();
+        rthetaphi6.siUnitstoAstronomical();
         rthetaphi6.astronomicalUnitstoSI();
         assertEquals(rthetaphi1.z,rthetaphi6.z,0.0001); 
     }
@@ -221,7 +221,7 @@ public class Vector3fTest {
          Vector3f v = new Vector3f((float) star.getX(), (float) star.getY(), (float) star.getZ());
          Vector3f rthetaphi = new Vector3f();
          v.saveSphericalCoords(rthetaphi);
-         rthetaphi.SIUnitstoAstronomical();
+         rthetaphi.siUnitstoAstronomical();
          assertEquals(star.getDistance(),rthetaphi.x,0.0001);
          
     }
@@ -231,7 +231,7 @@ public class Vector3fTest {
          Vector3f v = new Vector3f((float) star.getX(), (float) star.getY(), (float) star.getZ());
          Vector3f rthetaphi = new Vector3f();
          v.saveSphericalCoords(rthetaphi);
-         rthetaphi.SIUnitstoAstronomical();
+         rthetaphi.siUnitstoAstronomical();
          assertEquals(star.getDeclination(),rthetaphi.y, 0.0001);     
     }
     
@@ -240,7 +240,7 @@ public class Vector3fTest {
          Vector3f v = new Vector3f((float) star.getX(), (float) star.getY(), (float) star.getZ());
          Vector3f rthetaphi = new Vector3f();
          v.saveSphericalCoords(rthetaphi);
-         rthetaphi.SIUnitstoAstronomical();
+         rthetaphi.siUnitstoAstronomical();
          assertEquals(star.getRa(),rthetaphi.z,0.0001);
          
     }
