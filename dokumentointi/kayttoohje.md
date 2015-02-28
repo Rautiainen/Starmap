@@ -12,8 +12,6 @@ Tällöin avautuu käyttöliittymä, jolla voi hallita tähtinäkymää. "Show"-
 
 Ylimmällä rivillä voi editoida kuution keskipisteen koordinaattia avaruudessa, siinä on sekä kartesiolaiset että pallokoordinaatit. Nämä riippuvat toisistaan, ja siksi muutkin koordinaatit voivat muuttua yhtä koordinaattia muuttaessa (editoinnin lisäksi pitää painaa "Enter").
 
-Koordinaatit ovat tähtitieteellisissä yksiköissä - x y z ja etäisyys ovat parsekeissa (noin 3.26 valovuotta), deklinaatio (declination) eli korkeus tähtitaivaalla pystysuunnassa on välillä -90, 90 ja rektaskensio (right ascension) eli tähtitaivaan sivusuuntainen mittayksikkö on välillä 0, 24. Rektaskension mittayksikkö on tunnit, eli tunnissa tähtitaivas pyörähtää yhden yksikön verran. 
-
 Demoja: 
 
 1) Seulaset (avoin tähtijoukko Härän tähtikuviossa). Aseta ensin declination =24, paina enter. sitten right ascension = 3.750, paina enter. Sitten distance = 123 (parsekia), paina enter. Sitten valitse checkbox "rotate" ja paina "show". 

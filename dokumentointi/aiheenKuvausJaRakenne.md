@@ -40,6 +40,10 @@ Kuution keskipisteen koordinaatit näytetään sekä kartesiolaisessa- että pal
 
 Mikäli tarkkailupiste on nollapisteessä (aurinkokunnassa), niin tarkkailupiste ei siirry mikäli kuution keskipisteen astelukua muutetaan. Tällöin kuutio vain kiertää aurinkokuntaa. Mikäli tarkkailupiste ei ole nollapisteessä, tarkkailupiste siirtyy aina samaan suuntaan kun kuution keskipiste. 
 
+Koordinaatit ovat tähtitieteellisissä yksiköissä - x y z ja etäisyys ovat parsekeissa (noin 3.26 valovuotta), deklinaatio (declination) eli korkeus tähtitaivaalla pystysuunnassa on välillä -90, 90 ja rektaskensio (right ascension) eli tähtitaivaan sivusuuntainen mittayksikkö on välillä 0, 24. Rektaskension mittayksikkö on tunnit, eli tunnissa tähtitaivas pyörähtää yhden yksikön verran. 
+
+x, y ja z ovat astronomiset pallokoordinaatit muunnettuna kartesiolaisiksi. x on auringon suunta maasta katsottuna kevätpäiväntasauksena vuonna 2000, z on pohjoisen taivaannavan suunta (lähellä pohjantähteä) ja y on suunta jonka deklinaatio on 0 astetta ja rektaskensio 6 tuntia. 
+
 3.3. Kuution pyörittäminen
 
 Mikäli valintalaatikko "rotate" on valittu, tähtikartta pyörii näytettäessä samanaikaisesti y- ja z-akseleiden ympäri. Käännös on 0.25 

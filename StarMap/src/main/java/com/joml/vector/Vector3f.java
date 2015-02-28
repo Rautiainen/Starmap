@@ -270,4 +270,20 @@ public class Vector3f {
         return output;
     }
     
+    /**
+ * Turns a vector around amount of given angles
+ * and returns the turned vector coordinates, which is saved to turnedv. 
+ * Currently not being used.  
+     * @param v
+     * @param turnedv
+     * @param theta
+     * @param phi
+ */ /*  
+    public void turnVector(Vector3f v, Vector3f turnedv, float theta, float phi) {
+        Vector3f rthetaphi = new Vector3f();
+        v.saveSphericalCoords(rthetaphi);
+        turnedv.setFromSphericalCoords(rthetaphi.x, rthetaphi.y + theta, rthetaphi.z + phi);
+    }
+    */
+    
 }

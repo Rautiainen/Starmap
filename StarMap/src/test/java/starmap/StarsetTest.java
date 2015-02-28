@@ -86,4 +86,12 @@ public class StarsetTest {
     public void RightgLoopObjecttype() {
        assertEquals(gloopobject.getClass() , bigDipper.getgLoopObject().getClass());
     }
+    
+    @Test
+    public void setBRotatetest() {
+       boolean bool = true;
+       defaultSet.setbRotate(bool);
+       assertEquals(true,defaultSet.getbRotate());
+    }
+    
 }

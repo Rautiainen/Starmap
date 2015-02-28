@@ -9,6 +9,8 @@
 
 17.2.- 20.2.2015 25h käyttöliittymän tekemistä, testejä ja dokumentaatiota. 
 
+23.2.- 27.2.2015 25h loput funktionaalisuudet ja testejä. 
+
 
 
 

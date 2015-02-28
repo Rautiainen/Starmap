@@ -55,7 +55,7 @@ public class StarCube {
     }
 
  /**
- * Moves center to a new distance r. observationSpot the same direction and distance.
+ * Moves center to a new distance r. observationSpot moves to the same direction and distance.
  * @author Antti Rautiainen
      * @param r new distance
  */ 
@@ -88,22 +88,6 @@ public class StarCube {
         }    
     }
 
-    
- /**
- * Turns a dot around observation spot amount of given angles
- * and returns the turned dot coordinates, which is saved to turnedv. 
- * Possibly, this should be moved to vector library. 
-     * @param v
-     * @param turnedv
-     * @param theta
-     * @param phi
- */   
-    private void turnVector(Vector3f v, Vector3f turnedv, float theta, float phi) {
-        Vector3f rthetaphi = new Vector3f();
-        v.saveSphericalCoords(rthetaphi);
-        turnedv.setFromSphericalCoords(rthetaphi.x, rthetaphi.y + theta, rthetaphi.z + phi);
-    }
-    
  /**
  *  This sets transformation matrix, given center vector, observation spot and edgelength. 
  * xvector, yvector and zvector are corresponding directions 
@@ -135,9 +119,6 @@ public class StarCube {
         }
         this.transformation = new Matrix3f(yvector, zvector, xvector);
         this.edgelength = edgelength;
-        //for debugging
-        //System.out.println(this.center);
-        //System.out.println(this.transformation); 
     }
     
     public Vector3f getObservationSpot() {
@@ -162,7 +143,6 @@ public class StarCube {
         return observationSPotSpherical;
     }
     
-    
 /**
  * Sets observation spot from spherical coordinates.  
  *  center always moves along the observationSpot
@@ -174,13 +154,6 @@ public class StarCube {
         Vector3f.sub(observationSpot, storage, storage);
         center.add(storage);
     }
-    
-    /*
-    public float getEdgeLength() {   
-        Vector3f xdirection = new Vector3f(transformation.m00,transformation.m10, transformation.m20);
-        return 2*xdirection.length();
-    }
-    */
     
     public float getEdgelength() {
         return edgelength;
@@ -211,16 +184,12 @@ public class StarCube {
  * @author Antti Rautiainen
  */
     public StarCube(Vector3f center, float radians) {
-        
         this.observationSpot = new Vector3f(0, 0, 0);
         this.center = center;
-        
         Vector3f xvector = new Vector3f(center); 
         xvector.sub(observationSpot);
         xvector.mul((float) (Math.atan(radians / 2) / (1.0 + Math.atan(radians / 2))));
-        
         setTransformation(2 * xvector.length());
-        
     }
 
 /**

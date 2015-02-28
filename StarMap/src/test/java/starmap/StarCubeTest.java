@@ -147,5 +147,112 @@ public class StarCubeTest {
        assertEquals(testcube4.getCenter().length(),testcube2.getCenter().length(),0.000001);
     }
     
+    @Test
+    public void setCentertest() {
+       vec1 = new Vector3f(testcube2.getCenter());
+       vec2 = new Vector3f(testcube2.getObservationSpot());
+       testcube2.setCenter(vec3);
+       vec4 = new Vector3f(testcube2.getCenter());
+       vec5 = new Vector3f(testcube2.getObservationSpot());
+       vec2.sub(vec1);
+       vec5.sub(vec4);
+       assertEquals(vec2.length(),vec5.length(),0.000001);
+    }
+    
+    @Test
+    public void moveCenterDistancetest() {
+       vec1 = new Vector3f(testcube2.getCenter());
+       vec2 = new Vector3f(testcube2.getObservationSpot());
+       testcube2.moveCenterDistance(10);
+       vec4 = new Vector3f(testcube2.getCenter());
+       vec5 = new Vector3f(testcube2.getObservationSpot());
+       vec2.sub(vec1);
+       vec5.sub(vec4);
+       assertEquals(vec2.length(),vec5.length(),0.000001);
+    }
+    
+    @Test
+    public void moveCenterangletest() {
+       vec1 = new Vector3f(testcube2.getCenter());
+       vec2 = new Vector3f(testcube2.getObservationSpot());
+       testcube2.moveCenterAngle(1,1);
+       vec4 = new Vector3f(testcube2.getCenter());
+       vec5 = new Vector3f(testcube2.getObservationSpot());
+       vec2.sub(vec1);
+       vec5.sub(vec4);
+       assertEquals(vec2.length(),vec5.length(),0.000001);
+    }
+    
+    @Test
+    public void moveCenteranglenonzerotest() {
+       testcube2.setCenter(vec1);
+       vec6 = new Vector3f(testcube2.getCenter());
+       vec2 = new Vector3f(testcube2.getObservationSpot());
+       testcube2.moveCenterAngle(1,1);
+       vec4 = new Vector3f(testcube2.getCenter());
+       vec5 = new Vector3f(testcube2.getObservationSpot());
+       vec2.sub(vec6);
+       vec5.sub(vec4);
+       assertEquals(vec2.length(),vec5.length(),0.000001);
+    }
+    
+    @Test
+    public void centerVerticaltest() {
+       testcube2.setCenter(vec3);
+       testcube2.setEdgelength(30);
+       assertEquals(30.0,testcube2.getEdgelength(),0.000001);
+    }
+    
+    @Test
+    public void setObservationSpottest() {
+       vec1 = new Vector3f(testcube2.getCenter());
+       vec2 = new Vector3f(testcube2.getObservationSpot());
+       testcube2.setObservationSpot(vec3);
+       vec4 = new Vector3f(testcube2.getCenter());
+       vec5 = new Vector3f(testcube2.getObservationSpot());
+       vec2.sub(vec1);
+       vec5.sub(vec4);
+       assertEquals(vec2.length(),vec5.length(),0.000001);
+    }
+    
+    @Test
+    public void setObservationSpotSphericaltest() {
+       vec1 = new Vector3f(testcube2.getCenter());
+       vec2 = new Vector3f(testcube2.getObservationSpot());
+       rthetaphi1 = new Vector3f(0,0,0);
+       vec3.saveSphericalCoords(rthetaphi1);
+       testcube2.setObservationSpotSpherical(rthetaphi1.x, rthetaphi1.y,rthetaphi1.z);
+       vec4 = new Vector3f(testcube2.getCenter());
+       vec5 = new Vector3f(testcube2.getObservationSpot());
+       vec2.sub(vec1);
+       vec5.sub(vec4);
+       assertEquals(vec2.length(),vec5.length(),0.000001);
+    }
+    
+    @Test
+    public void setEdgeLengthtest() {
+       testcube2.setEdgelength(30);
+       assertEquals(30,testcube2.getEdgelength(),0.000001);
+    }
+
+    @Test
+    public void lookToPolaris() {
+       float oldedgelength = testcube2.getEdgelength();
+       testcube2.moveCenterAngle(0, 0);
+       assertEquals(oldedgelength,testcube2.getEdgelength(),0.000001);
+    }
+    
+    
+    @Test
+    public void ObservatioSpotright() {
+       testcube2.setObservationSpot(vec1);
+       assertEquals(vec1.length(), testcube2.getObservationSpot().length(),0.000001);
+    }
+    
+    @Test
+    public void ObservatioSpotSPhericalright() {
+       testcube2.setObservationSpotSpherical(1,1,1);
+       assertEquals(1, testcube2.getObservationSpotSpherical().x,0.000001);
+    }
 
 }

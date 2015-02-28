@@ -39,6 +39,7 @@ public class Vector3fTest {
     Vector3f v4;
     Vector3f v5;
     Vector3f v6;
+    Vector3f zerovector;
     Vector3f rthetaphi1;
     Vector3f rthetaphi2;
     Vector3f rthetaphi3;
@@ -57,6 +58,7 @@ public class Vector3fTest {
         v4 = new Vector3f((float) -1.0, (float) 0.0, (float) 0.0);
         v5 = new Vector3f((float) 0.0, (float) -1.0, (float) 0.0);
         v6 = new Vector3f((float) 0.0, (float) 0.0, (float) -1.0);
+        zerovector =  new Vector3f((float) 0.0, (float) 0.0, (float) 0.0);
         rthetaphi1 = new Vector3f((float) 0.0, (float) 0.0, (float) 0.0);
         rthetaphi2 = new Vector3f((float) 0.0, (float) 0.0, (float) 0.0);
         rthetaphi3 = new Vector3f((float) 0.0, (float) 0.0, (float) 0.0);
@@ -272,6 +274,12 @@ public class Vector3fTest {
          v.setFromSphericalCoords(rthetaphi.x, rthetaphi.y,rthetaphi.z);
          assertEquals(star.getZ(),v.z,0.0001);
          
+    }
+    
+    @Test
+    public void zerovectortosphericals() {
+        zerovector.saveSphericalCoords(rthetaphi1);
+        assertEquals(0,rthetaphi1.y,0.0001);
     }
     
 }

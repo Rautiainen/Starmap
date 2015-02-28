@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 
 import com.joml.vector.Vector3f;
-import java.util.Scanner;
-import starmap.Star;
-import starmap.StarCube;
 import starmap.StarFrame;
 import starmap.Starset;
 
 /**
- *
- * @author air
+ * GUI for Starmap with various controls for coordination transformations and others. 
+ * @author Antti Rautiainen
  */
 public class StarMapUI extends javax.swing.JFrame {
     
@@ -378,12 +371,8 @@ public class StarMapUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCenterRAscActionPerformed
 
     private void jButtonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowActionPerformed
-        //comment for debugging
         starSelection.load(starSelection.getStarcube());
         new StarFrame().execute(starSelection.getgLoopObject());
-        //System.out.println("Proper names:"); //for debugging
-        //starSelection.printProperNames(); //for debugging
-        // starSelection.print(); //for debugging
     }//GEN-LAST:event_jButtonShowActionPerformed
 
     private void jTextFieldCenterYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCenterYActionPerformed
@@ -546,8 +535,6 @@ public class StarMapUI extends javax.swing.JFrame {
         starSelection.getStarcube().setEdgelength(floatinput);
         updateTextFields();
     }//GEN-LAST:event_jTextFieldEdgeLengthActionPerformed
-    
-          
         
     /**
      * @param args the command line arguments
@@ -576,13 +563,8 @@ public class StarMapUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(StarMapUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        
-        //normal launch
+    
         starSelection = new Starset(); 
-        //Starset bigDipper = new Starset();
-        //StarCube starcube = new StarCube(bigDipper.center(),(float) (66 * (Math.PI/180)));
-        //starSelection = new Starset(starcube);
         
         /* Create and display the form */
                         
@@ -592,13 +574,6 @@ public class StarMapUI extends javax.swing.JFrame {
           
             }
         });
-        
-       /* java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StarMapUI().setVisible(true);
-            }
-        });
-        */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
