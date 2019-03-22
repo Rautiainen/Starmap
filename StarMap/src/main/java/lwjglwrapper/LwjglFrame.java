@@ -2,18 +2,22 @@ package lwjglwrapper;
 
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWKeyCallback;
-import org.lwjgl.glfw.GLFWvidmode;
+//import org.lwjgl.glfw.
+//import org.lwjgl.glfw.GLFWvidmode;
+import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GLContext;
+//import org.lwjgl.opengl.GLContext;
+//import org.lwjgl.opengl.G
 
-
-import org.lwjgl.Sys;
+//import org.lwjgl.Sys;
 import java.nio.ByteBuffer;
-import static org.lwjgl.glfw.Callbacks.errorCallbackPrint;
+import org.lwjgl.Version;
+//import static org.lwjgl.glfw.Callbacks.errorCallbackPrint;
   
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.glfw.GLFW.*;
+import org.lwjgl.opengl.GL;
   
 /**
  * Generic frame for LWJGL. Command loop, window size and 
@@ -28,6 +32,7 @@ public class LwjglFrame {
     
     private GLFWErrorCallback errorCallback;
     private GLFWKeyCallback   keyCallback;
+    //private GLFWKeyFun GLFWkeyfun;
     
     private long window;
     
@@ -38,10 +43,12 @@ public class LwjglFrame {
     }
    
     private void init() {
-        glfwSetErrorCallback(errorCallback = errorCallbackPrint(System.err));
+        //glfwSetErrorCallback(errorCallback = errorCallbackPrint(System.err));
+        errorCallback = GLFWErrorCallback.createPrint(System.err);
  
         
-        if (glfwInit() != GL11.GL_TRUE) {
+        //if (glfwInit() != GL11.GL_TRUE) {
+        if (glfwInit() != true) {
             throw new IllegalStateException("Unable to initialize GLFW");
         }
         glfwDefaultWindowHints();
@@ -52,22 +59,34 @@ public class LwjglFrame {
         if (window == NULL) {
             throw new RuntimeException("Failed to create the GLFW window");
         }
-        glfwSetKeyCallback(window, keyCallback = new GLFWKeyCallback() {
-            @Override
-            public void invoke(long window, int key, int scancode, int action, int mods) {
-                if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) {
-                    glfwSetWindowShouldClose(window, GL_TRUE); // We will detect this in our rendering loop
-                }
-            }
+        
+        // Setup a key callback. It will be called every time a key is pressed, repeated or released.
+		glfwSetKeyCallback(window, (window, key, scancode, action, mods) -> {
+			if ( key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE )
+				glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
+		});
+        
+        //glfwSetKeyCallback(window, keyCallback = new GLFWKeyCallback() {
+        //glfwSetKeyCallback(window, GLFWkeyfun = new GLFWkeyfun() { 
+        //@Override
+        //    public void invoke(long window, int key, int scancode, int action, int mods) {
+        //        if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) {
+                    //glfwSetWindowShouldClose(window, GL_TRUE); // We will detect this in our rendering loop
+        //            glfwSetWindowShouldClose(window, true); // We will detect this in our rendering loop
+        //        }
+        //    }
         
  
-        });
+        //});
   
-        ByteBuffer vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+        //ByteBuffer vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+        GLFWVidMode vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
         glfwSetWindowPos(
             window,
-            (GLFWvidmode.width(vidmode) - width) / 2,
-            (GLFWvidmode.height(vidmode) - height) / 2
+            //(GLFWVidMode.width(vidmode) - width) / 2,
+            //(GLFWVidMode.height(vidmode) - height) / 2
+            (vidmode.width() - width) / 2,
+            (vidmode.height() - height) / 2
         );
   
         glfwMakeContextCurrent(window);
@@ -80,7 +99,8 @@ public class LwjglFrame {
  * @author Antti Rautiainen
  */
     public void execute(GLoopObject command) {
-        Sys.getVersion();
+        //Sys.getVersion();
+        Version.getVersion();
   
         //try {
         init();
@@ -113,9 +133,11 @@ public class LwjglFrame {
     }
     
     private void loop(GLoopObject command) {
-        GLContext.createFromCurrent();
+        //GLContext.createFromCurrent();
+        GL.createCapabilities();
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        while (glfwWindowShouldClose(window) == GL_FALSE) {                       
+        //while (glfwWindowShouldClose(window) == GL_FALSE) {
+        while (glfwWindowShouldClose(window) == false) {
             command.show();
             glfwSwapBuffers(window);
             glfwPollEvents();

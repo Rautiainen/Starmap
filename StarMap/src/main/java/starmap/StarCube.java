@@ -172,6 +172,7 @@ public class StarCube {
         this.transformation.mul(factor);
         Vector3f multipliedcenter = new Vector3f(center);
         multipliedcenter.mul(1 - factor);
+        this.observationSpot.mul(factor);
         this.observationSpot.add(multipliedcenter);
     }
     

@@ -77,7 +77,7 @@ public class StarGLoop implements GLoopObject {
             spotx = starcube.getObservationSpot().x;
             spoty = starcube.getObservationSpot().y;
             spotz = starcube.getObservationSpot().z;
-            sphereradius = Math.max((9.0 - star.visualMag(star, spotx, spoty, spotz)) / 1000, 0);               
+            sphereradius = Math.max((starset.getTresholdMagnitude() - star.visualMag(star, spotx, spoty, spotz)) / 1000, 0);               
             solidsphere(starcoords.x, starcoords.y, starcoords.z, sphereradius, 5); //0.005
         }
             

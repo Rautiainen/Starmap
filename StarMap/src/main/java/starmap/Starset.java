@@ -17,9 +17,8 @@ public class Starset {
     private StarCube starcube;
     private GLoopObject gLoopObject;
     private boolean bRotate;
-    
-    // private double edgelength = 0.6; //has this been used?
-    
+    private float tresholdMagnitude;
+
     /**
     * This constructor loads all stars of visual magnitude smaller than 8 a given StarCube
      * @param starcube
@@ -67,6 +66,7 @@ public class Starset {
         
         gLoopObject = new StarGLoop(this);
         bRotate = false;
+        tresholdMagnitude = 9.0f;
     }
 
     /**
@@ -105,24 +105,9 @@ public class Starset {
         this.starcube = new StarCube(center(), (float) (66 * (Math.PI / 180)));
         gLoopObject = new StarGLoop(this);
         bRotate = false;
+        tresholdMagnitude = 9.0f;
     }
     
-    /**
-    * Counts center of the starset (average of coordinates). 
-     * @return Vector3f
-    */   
-    public Vector3f center() {
-        double sumx = 0, sumy = 0, sumz = 0;
-        for (Star star1 : stars) {
-            sumx += star1.getX();
-            sumy += star1.getY();
-            sumz += star1.getZ();
-        }
-        int n = stars.size();
-        return new Vector3f((float) sumx / n, (float) sumy / n, (float) sumz / n);
-    }
-    
-   
     public List<Star> getStars() {
         return stars;
     }  
@@ -142,6 +127,30 @@ public class Starset {
     public void setbRotate(boolean bRotate) {
         this.bRotate = bRotate;
     }
+
+    public float getTresholdMagnitude() {
+        return tresholdMagnitude;
+    }
+
+    public void setTresholdMagnitude(float tresholdMagnitude) {
+        this.tresholdMagnitude = tresholdMagnitude;
+    }
+    
+    /**
+    * Counts center of the starset (average of coordinates). 
+     * @return Vector3f
+    */   
+    private Vector3f center() {
+        double sumx = 0, sumy = 0, sumz = 0;
+        for (Star star1 : stars) {
+            sumx += star1.getX();
+            sumy += star1.getY();
+            sumz += star1.getZ();
+        }
+        int n = stars.size();
+        return new Vector3f((float) sumx / n, (float) sumy / n, (float) sumz / n);
+    }
+    
     
     
     //Only used for debugging
@@ -195,7 +204,6 @@ public class Starset {
     /**
     * Only used for debugging
     */
-    /*
     public void printProperNames() {
         for (Star star : stars) {
             if (!star.getProperName().equals("")) {
@@ -203,7 +211,7 @@ public class Starset {
             } 
         }       
     }
-    */
+    
     
 }
     

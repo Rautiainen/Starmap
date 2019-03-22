@@ -40,6 +40,7 @@ public class StarMapUI extends javax.swing.JFrame {
         jTextFieldObservationSpotDec.setText(String.format("%.3f", rthetaphi.y));
         jTextFieldObservationSpotRAsc.setText(String.format("%.3f", rthetaphi.z));
         jTextFieldEdgeLength.setText(String.format("%.3f", starSelection.getStarcube().getEdgelength()));
+        jTextFieldTresholdMagnitude.setText(String.format("%.3f", starSelection.getTresholdMagnitude()));
     }
  
     
@@ -82,6 +83,8 @@ public class StarMapUI extends javax.swing.JFrame {
         jTextFieldEdgeLength = new javax.swing.JTextField();
         jButtonShow = new javax.swing.JButton();
         jCheckBoxRotate = new javax.swing.JCheckBox();
+        jLabel16 = new javax.swing.JLabel();
+        jTextFieldTresholdMagnitude = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Starmap Controls");
@@ -221,6 +224,15 @@ public class StarMapUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel16.setText("Treshold magnitude");
+
+        jTextFieldTresholdMagnitude.setText("jTextField1");
+        jTextFieldTresholdMagnitude.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTresholdMagnitudeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -232,22 +244,6 @@ public class StarMapUI extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addGap(6, 6, 6)
-                                .addComponent(jTextFieldEdgeLength, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(3, 3, 3)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldCenterZ, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldObservationSpotZ, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel11)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,19 +261,41 @@ public class StarMapUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jTextFieldCenterY, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldObservationSpotY, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldObservationSpotDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCenterDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldObservationSpotY, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(6, 6, 6)
+                                .addComponent(jTextFieldEdgeLength, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(3, 3, 3)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldCenterZ, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldObservationSpotZ, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel11)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldObservationSpotDistance, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                            .addComponent(jTextFieldCenterDistance, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
+                            .addComponent(jTextFieldTresholdMagnitude, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldObservationSpotDec, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(jTextFieldCenterDec, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                            .addComponent(jTextFieldCenterDec, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -333,7 +351,9 @@ public class StarMapUI extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(jButtonShow)
                     .addComponent(jTextFieldEdgeLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBoxRotate))
+                    .addComponent(jCheckBoxRotate)
+                    .addComponent(jLabel16)
+                    .addComponent(jTextFieldTresholdMagnitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -373,6 +393,7 @@ public class StarMapUI extends javax.swing.JFrame {
     private void jButtonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowActionPerformed
         starSelection.load(starSelection.getStarcube());
         new StarFrame().execute(starSelection.getgLoopObject());
+        starSelection.printProperNames();
     }//GEN-LAST:event_jButtonShowActionPerformed
 
     private void jTextFieldCenterYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCenterYActionPerformed
@@ -535,6 +556,18 @@ public class StarMapUI extends javax.swing.JFrame {
         starSelection.getStarcube().setEdgelength(floatinput);
         updateTextFields();
     }//GEN-LAST:event_jTextFieldEdgeLengthActionPerformed
+
+    private void jTextFieldTresholdMagnitudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTresholdMagnitudeActionPerformed
+        float floatinput = starSelection.getTresholdMagnitude();
+        try {
+            floatinput = Float.parseFloat(jTextFieldTresholdMagnitude.getText());
+        } catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
+        starSelection.setTresholdMagnitude(floatinput);
+        updateTextFields();
+        
+    }//GEN-LAST:event_jTextFieldTresholdMagnitudeActionPerformed
         
     /**
      * @param args the command line arguments
@@ -586,6 +619,7 @@ public class StarMapUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -607,5 +641,6 @@ public class StarMapUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldObservationSpotX;
     private javax.swing.JTextField jTextFieldObservationSpotY;
     private javax.swing.JTextField jTextFieldObservationSpotZ;
+    private javax.swing.JTextField jTextFieldTresholdMagnitude;
     // End of variables declaration//GEN-END:variables
 }

@@ -51,7 +51,7 @@ public class StarsetTest {
         testcube = new StarCube(testcenter,testobservationspot,testtransformation); 
         bigDipper = new Starset(testcube, "Dubhe", "Merak", "Phad", "Megrez", "Alioth", "Mizar", "Alkaid");
         defaultSet = new Starset();
-        testcube2 = new StarCube(bigDipper.center(),(float) (66 * (Math.PI/180)));
+        testcube2 = new StarCube(bigDipper.getStarcube().getCenter(),(float) (66 * (Math.PI/180)));
         bigDipperAll = new Starset(testcube2);
         gloopobject = new StarGLoop(bigDipper);
     }
